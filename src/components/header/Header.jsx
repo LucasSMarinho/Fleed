@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { Image } from 'react-native';
 import backIcon from '../../../assets/backIcon.png';
 import headerStyles from './headerStyles';
@@ -17,13 +17,10 @@ export default function Header(props) {
     return (
         <>
             <View style={headerStyles.container}>
-<<<<<<< HEAD
-                <touchebleOpacity>
+                <TouchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
-                </touchebleOpacity>
-=======
+                </TouchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
->>>>>>> main
                 <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
             </View>
         </>
