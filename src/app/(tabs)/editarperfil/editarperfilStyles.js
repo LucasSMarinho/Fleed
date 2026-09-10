@@ -38,8 +38,10 @@ export const editarperfilStySheet = StyleSheet.create({
     },
 
     camera: {
-        marginTop: -18,
-        marginLeft: 65,
+        width: 15,
+        height: 15,
+        marginTop: -7,
+        marginLeft: +65,
     },
 
     textoInicial: {

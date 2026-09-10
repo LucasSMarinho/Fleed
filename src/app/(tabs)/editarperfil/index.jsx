@@ -10,6 +10,8 @@ import {
 import { editarperfilStySheet } from "./editarperfilStyles";
 import Header from "../../../components/header/Header";
 
+import Camera from "../../../../assets/camera.svg";
+import Logo from "../../../../assets/logo.jpg";
 
 
 export default function EditarPerfil() {
@@ -36,13 +38,14 @@ export default function EditarPerfil() {
             <View style={editarperfilStySheet.fotoContainer}>
 
                 <Image
-                    // source={require("../../../../assets/logo.png")}
+                    source={Logo}
                     style={editarperfilStySheet.foto}
                 />
 
-                <Text style={editarperfilStySheet.camera}>
-                    tti
-                </Text>
+                <TouchableOpacity onPress={() => { }}>
+                    <Camera style={editarperfilStySheet.camera} />
+                </TouchableOpacity>
+
 
             </View>
 
