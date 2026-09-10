@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native'; 
 import { TouchableOpacity } from 'react-native'; 
 import { useRouter } from 'expo-router'; 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.jpg";
  
 export default function App() { 
   const router = useRouter(); 
