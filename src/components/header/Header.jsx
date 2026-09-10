@@ -17,9 +17,13 @@ export default function Header(props) {
     return (
         <>
             <View style={headerStyles.container}>
+<<<<<<< HEAD
                 <touchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
                 </touchebleOpacity>
+=======
+                <Image source={backIcon} style={{height: 13, width: 13}}/>
+>>>>>>> main
                 <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
             </View>
         </>
