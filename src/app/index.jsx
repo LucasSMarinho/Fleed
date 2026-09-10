@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+import Fundo from '../../assets/fundo.svg';
 
 export default function App() {
   const router = useRouter();
@@ -16,9 +17,9 @@ export default function App() {
       <Text style={styles.title}>Fleed</Text>
 
       <Text style={styles.subtitle}>
-        Conecte-se com Pessoas e
-        compartilhe momentos.
-      </Text>
+  Conecte-se com Pessoas e{'\n'}
+  compartilhe momentos.
+</Text>
 
       <TouchableOpacity
         style={styles.entrar}
@@ -33,11 +34,11 @@ export default function App() {
       >
         <Text style={styles.buttonText}>Criar conta</Text>
       </TouchableOpacity>
-
-      <Image
-        source={require('../../assets/fundo.png')}
-        style={styles.fundo}
-      />
+<Fundo
+  width="105%"
+  height={120}
+  style={styles.fundo}
+/>
 
       <StatusBar style="auto" />
 
@@ -54,9 +55,9 @@ const styles = StyleSheet.create({
   },
 
   logo: {
-    width: 100,
-    height: 100,
-    // marginBottom: 15,
+    width: 120,
+    height: 120,
+    marginBottom: 15,
     borderRadius: 4,
     
   },
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 34,
     fontWeight: 'bold',
     color: '#BC3154',
+    
   },
 
   subtitle: {
@@ -104,10 +106,9 @@ const styles = StyleSheet.create({
 
   fundo: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%',
-    height: 65,
+    bottom: -25,
+    left: '-2.5%',
+    
     
   },
 });
