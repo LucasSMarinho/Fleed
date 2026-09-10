@@ -6,6 +6,7 @@ import { TextInput } from 'react-native-web';
 import { Oswald_600SemiBold, Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { useFonts } from '@expo-google-fonts/oswald';
 import Button from '../../../components/button/Button';
+import LogoGoogle from '../../../../assets/Google.svg'
 
 export default function Perfil() {
 
@@ -45,12 +46,10 @@ export default function Perfil() {
           </View>
 
           <TouchableOpacity style={perfilStyles.ButtonGoogle}>
+            <LogoGoogle width={35} height={35} />
                  <Text style={perfilStyles.ButtonGoogleText}>Entrar com Google</Text>
           </TouchableOpacity>
-     
-          <View>
-            <Text style={perfilStyles.inputText}>Esqueceu sua senha?</Text>
-          </View>
+    
         </View>
         <StatusBar style="auto" />
       </View>
