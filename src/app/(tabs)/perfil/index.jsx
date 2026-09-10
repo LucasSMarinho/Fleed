@@ -47,7 +47,10 @@ export default function Perfil() {
           <TouchableOpacity style={perfilStyles.ButtonGoogle}>
                  <Text style={perfilStyles.ButtonGoogleText}>Entrar com Google</Text>
           </TouchableOpacity>
-    
+     
+          <View>
+            <Text style={perfilStyles.inputText}>Esqueceu sua senha?</Text>
+          </View>
         </View>
         <StatusBar style="auto" />
       </View>
