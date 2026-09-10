@@ -9,7 +9,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Essa é a tela inicial</Text>
-      <TouchableOpacity onPress={() => {router.push('/(tabs)')}}>
+      <TouchableOpacity onPress={() => {router.push('/perfil')}}>
         <Text>Clique aqui</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />

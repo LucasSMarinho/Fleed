@@ -4,9 +4,10 @@ export default function TabsLayout() {
 
         <Tabs>
             <Tabs.Screen
-                name="index"
+                name="perfil"
                 options={{
                     title: "Início",
+                    headerShown: false,
                 }}
             />
         </Tabs>
