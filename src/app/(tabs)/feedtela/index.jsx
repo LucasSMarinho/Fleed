@@ -47,6 +47,28 @@ export default function FeedTela() {
             comentarios: 2,
             curtido: false,
         },
+
+        {
+            id: 3,
+            nome: "Lucas Moura",
+            horario: "Hoje 16:31",
+            texto:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+            curtidas: 28,
+            comentarios: 2,
+            curtido: false,
+        },
+
+        {
+            id: 4,
+            nome: "Lucas Moura",
+            horario: "Hoje 16:31",
+            texto:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+            curtidas: 28,
+            comentarios: 2,
+            curtido: false,
+        },
     ]);
 
     // CURTIR PUBLICAÇÃO
@@ -88,10 +110,6 @@ export default function FeedTela() {
     return (
         <View style={feedtelaStyles.container}>
 
-            {/* ================================================= */}
-            {/* HEADER */}
-            {/* ================================================= */}
-
             <View style={feedtelaStyles.header}>
 
                 <Text style={feedtelaStyles.logo}>
@@ -111,11 +129,6 @@ export default function FeedTela() {
 
             </View>
 
-
-            {/* ================================================= */}
-            {/* FEED / SCROLL */}
-            {/* ================================================= */}
-
             <ScrollView
                 style={feedtelaStyles.scroll}
                 contentContainerStyle={feedtelaStyles.scrollContent}
@@ -128,10 +141,6 @@ export default function FeedTela() {
                         key={publicacao.id}
                         style={feedtelaStyles.cardPublicacao}
                     >
-
-                        {/* ===================================== */}
-                        {/* CABEÇALHO DA PUBLICAÇÃO */}
-                        {/* ===================================== */}
 
                         <View style={feedtelaStyles.usuario}>
 
@@ -164,23 +173,11 @@ export default function FeedTela() {
 
                         </View>
 
-
-                        {/* ===================================== */}
-                        {/* TEXTO */}
-                        {/* ===================================== */}
-
                         <Text style={feedtelaStyles.textoPublicacao}>
                             {publicacao.texto}
                         </Text>
 
-
-                        {/* ===================================== */}
-                        {/* AÇÕES */}
-                        {/* ===================================== */}
-
                         <View style={feedtelaStyles.acoes}>
-
-                            {/* CURTIR */}
 
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
@@ -208,14 +205,11 @@ export default function FeedTela() {
 
                             </TouchableOpacity>
 
-
-                            {/* COMENTÁRIOS */}
-
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
+                                onPress={() => router.push("/detalhes")}
                                 activeOpacity={0.7}
                             >
-
                                 <ComentarioAzul
                                     width={23}
                                     height={23}
@@ -226,9 +220,6 @@ export default function FeedTela() {
                                 </Text>
 
                             </TouchableOpacity>
-
-
-                            {/* SALVAR */}
 
                             <TouchableOpacity
                                 style={feedtelaStyles.botaoSalvar}
@@ -248,17 +239,9 @@ export default function FeedTela() {
 
                 ))}
 
-
-                {/* Espaço no final para o conteúdo não ficar atrás do botão + */}
-
                 <View style={feedtelaStyles.espacoFinal} />
 
             </ScrollView>
-
-
-            {/* ================================================= */}
-            {/* BOTÃO FLUTUANTE */}
-            {/* ================================================= */}
 
             <TouchableOpacity
                 style={feedtelaStyles.botaoAdicionar}
