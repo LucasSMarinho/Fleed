@@ -4,6 +4,7 @@ import backIcon from '../../../assets/backIcon.png';
 import headerStyles from './headerStyles';
 import { useFonts, Oswald_600SemiBold} from '@expo-google-fonts/oswald';
 
+
 export default function Header(props) {
 
     let [fontsLoaded] = useFonts({
@@ -20,7 +21,6 @@ export default function Header(props) {
                 <TouchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
                 </TouchebleOpacity>
-                <Image source={backIcon} style={{height: 13, width: 13}}/>
                 <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
             </View>
         </>
