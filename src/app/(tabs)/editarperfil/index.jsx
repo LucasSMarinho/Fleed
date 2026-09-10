@@ -2,35 +2,31 @@ import React, { useState } from "react";
 import {
     View,
     Text,
-    TextInput,
     TouchableOpacity,
-    Image,
 } from "react-native";
-
 import { editarperfilStySheet } from "./editarperfilStyles";
 
-
-const [nome, setNome] = useState("Lucas Moura");
-const [usuario, setUsuario] = useState("Lucas.moura");
-const [bio, setBio] = useState("Jogador do São Paulo Futebol Clube.");
+import { useFonts, Oswald_600SemiBold } from "@expo-google-fonts/oswald";
+import { Image } from "../../../../assets/backIcon.png";
+import Header from "../../../components/header/Header";
 
 export default function EditarPerfil() {
+
+    const [nome, setNome] = useState("Lucas Moura");
+    const [usuario, setUsuario] = useState("Lucas.moura");
+    const [bio, setBio] = useState("Jogador do São Paulo Futebol Clube.");
+
+    let [fontsLoaded] = useFonts({
+        Oswald_600SemiBold,
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <View style={editarperfilStySheet.container}>
-
-            <View style={editarperfilStySheet.header}>
-                <TouchableOpacity onPress={() => {}}>
-                    <Image
-                        source={require("../../../../assets/backIcon.png")}
-                        style={editarperfilStySheet.iconeVoltar}
-                    />
-                </TouchableOpacity>
-                <Text style={editarperfilStySheet.titulo}>
-                    Editar Perfil
-                </Text>
-            </View>
-
+            <Header tituloHeader="Editar Perfil" corText="#588EB2"  />
         </View>
-
     )
 }
