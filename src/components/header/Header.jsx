@@ -17,9 +17,9 @@ export default function Header(props) {
     return (
         <>
             <View style={headerStyles.container}>
-                <touchebleOpacity>
+                <TouchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
-                </touchebleOpacity>
+                </TouchebleOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
                 <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
             </View>
