@@ -1,57 +1,56 @@
-import { StatusBar } from 'expo-status-bar'; 
-import { StyleSheet, Text, View, Image } from 'react-native'; 
-import { TouchableOpacity } from 'react-native'; 
-import { useRouter } from 'expo-router'; 
-import logo from "../../assets/logo.png";
- 
-export default function App() { 
-  const router = useRouter(); 
- 
-  return ( 
-    <View style={styles.container}> 
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
+
+export default function App() {
+  const router = useRouter();
+
+  return (
+    <View style={styles.container}>
 
       <Image
-        source={logo}
+        source={require('../../assets/logo.jpg')}
         style={styles.logo}
       />
 
       <Text style={styles.title}>Fleed</Text>
 
       <Text style={styles.subtitle}>
-        Conecte-se com Pessoas e{'\n'}
+        Conecte-se com Pessoas e
         compartilhe momentos.
       </Text>
 
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.entrar}
-        onPress={() => {router.push('/perfil')}} 
-      > 
-        <Text style={styles.buttonText}>Entrar</Text> 
+        onPress={() => router.push('/perfil')}
+      >
+        <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity 
+      <TouchableOpacity
         style={styles.criar}
-        onPress={() => {router.push('/perfil')}} 
-      > 
-        <Text style={styles.buttonText}>Criar conta</Text> 
+        onPress={() => router.push('/perfil')}
+      >
+        <Text style={styles.buttonText}>Criar conta</Text>
       </TouchableOpacity>
 
       <Image
-        source={require('../../assets/fundo.png')}
+        source={require('../../assets/fundo.jpg')}
         style={styles.fundo}
       />
 
-      <StatusBar style="auto" /> 
-    </View> 
-  ); 
-} 
- 
-const styles = StyleSheet.create({ 
-  container: { 
-    flex: 1, 
-    backgroundColor: '#fff', 
-    alignItems: 'center', 
-    justifyContent: 'center', 
+      <StatusBar style="auto" />
+
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   logo: {
@@ -85,20 +84,22 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
 
-  criar:{
-    width: "85%", 
-    height: 50, 
-    backgroundColor: "#DC97A5",
+  criar: {
+    width: '85%',
+    height: 50,
+    backgroundColor: '#DC97A5',
     borderRadius: 7,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 16,
   },
-  buttonText:{
-    color: "white",
+
+  buttonText: {
+    color: 'white',
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
+
   fundo: {
     position: 'absolute',
     bottom: 0,
@@ -106,6 +107,4 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 65,
   },
-
-  
 });
