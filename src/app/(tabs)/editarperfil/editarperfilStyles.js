@@ -13,4 +13,5 @@ export const editarperfilStySheet = StyleSheet.create({
         marginTop: 20,
         marginBottom: 15,
     },
+    
 });
