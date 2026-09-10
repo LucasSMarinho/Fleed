@@ -1,150 +1,141 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-const perfilusuarioStyles   = StyleSheet.create({
-   container: {
-    flex: 1,
-    backgroundColor: "#F1F1EF",
-  },
+export const perfilusuarioStyles = StyleSheet.create({
 
-  topBar: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 12,
-    paddingBottom: 16,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#ffffff",
+    },
 
-  backButton: {
-    position: "absolute",
-    left: 20,
-    padding: 4,
-  },
+    scroll: {
+        paddingBottom: 90,
+    },
 
-  backButtonText: {
-    fontSize: 22,
-    color: "#C41E4F",
-    fontWeight: "700",
-  },
+    /* CABEÇALHO */
 
-  title: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#4A7FA5",
-  },
+    header: {
+        height: 90,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+    },
 
-  scrollContent: {
-    alignItems: "center",
-    paddingHorizontal: 20,
-    paddingBottom: 24,
-  },
+    titulo: {
+        fontSize: 36,
+        fontWeight: "bold",
+        color: "#6485a6",
+    },
 
-  avatarWrap: {
-    width: 130,
-    height: 130,
-    borderRadius: 65,
-    overflow: "hidden",
-    marginBottom: 14,
-  },
+    botaoVoltar: {
+        position: "absolute",
+        left: 20,
+        top: 30,
+    },
 
-  avatarImage: {
-    width: "100%",
-    height: "100%",
-  },
 
-  avatarPlaceholder: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#D9D3D9",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+    /* FOTO */
 
-  avatarPlaceholderText: {
-    fontSize: 36,
-    fontWeight: "700",
-    color: "#4A7FA5",
-  },
+    areaFoto: {
+        alignItems: "center",
+        marginTop: 0,
+    },
 
-  nomeRow: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
+    fotoPerfil: {
+        width: 155,
+        height: 155,
+        borderRadius: 100,
+    },
 
-  nome: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#2E2E2E",
-  },
 
-  editButton: {
-    marginLeft: 8,
-    padding: 4,
-  },
+    /* NOME */
 
-  editButtonText: {
-    fontSize: 16,
-    color: "#C41E4F",
-  },
+    areaNome: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 10,
+        gap: 6,
+    },
 
-  usuario: {
-    fontSize: 14,
-    color: "#8A8A87",
-    marginTop: 2,
-    marginBottom: 18,
-  },
+    nome: {
+        fontSize: 26,
+        fontWeight: "bold",
+        color: "#171717",
+    },
 
-  statsRow: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-around",
-    marginBottom: 18,
-  },
+    usuario: {
+        textAlign: "center",
+        fontSize: 17,
+        color: "#555555",
+        marginTop: 2,
+    },
 
-  statItem: {
-    alignItems: "center",
-  },
 
-  statNumero: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#2E2E2E",
-  },
+    /* INFORMAÇÕES */
 
-  statLabel: {
-    fontSize: 13,
-    color: "#8A8A87",
-    marginTop: 2,
-  },
+    informacoes: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        width: "100%",
+        marginTop: 35,
+        paddingHorizontal: 15,
+    },
 
-  bio: {
-    fontSize: 14,
-    color: "#C41E4F",
-    fontWeight: "600",
-    marginBottom: 20,
-  },
+    info: {
+        alignItems: "center",
+        flex: 1,
+    },
 
-  tabsRow: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    marginBottom: 16,
-  },
+    numero: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#171717",
+    },
 
-  tabButton: {
-    padding: 8,
-  },
+    textoInfo: {
+        fontSize: 17,
+        color: "#222222",
+        marginTop: 4,
+    },
 
-  tabButtonAtiva: {
-    borderBottomWidth: 2,
-    borderBottomColor: "#C41E4F",
-  },
 
-  tabIcon: {
-    fontSize: 20,
-    color: "#C41E4F",
-  },
+    /* BIO */
 
-  
+    bio: {
+        textAlign: "center",
+        fontSize: 17,
+        color: "#222222",
+        marginTop: 20,
+    },
+
+
+    /* MENU DA GALERIA */
+
+    menuGaleria: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingHorizontal: 60,
+        marginTop: 50,
+        height: 50,
+    },
+
+
+    /* GALERIA */
+
+    galeria: {
+        flexDirection: "row",
+        width: "100%",
+        gap: 5,
+        marginTop: 5,
+    },
+
+    fotoGaleria: {
+        width: "32.8%",
+        height: 125,
+        borderRadius: 6,
+    },
+
+
+    
 });
-
-export default perfilusuarioStyles;
