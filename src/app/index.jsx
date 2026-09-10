@@ -35,7 +35,7 @@ export default function App() {
       </TouchableOpacity>
 
       <Image
-        source={require('../../assets/fundo.jpg')}
+        source={require('../../assets/fundo.png')}
         style={styles.fundo}
       />
 
@@ -56,7 +56,9 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
-    marginBottom: 15,
+    // marginBottom: 15,
+    borderRadius: 4,
+    
   },
 
   title: {
@@ -106,5 +108,6 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: 65,
+    
   },
 });
