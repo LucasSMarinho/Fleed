@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const feedtelaStyles = StyleSheet.create({
+export const detalhesStyles = StyleSheet.create({
 
     // =====================================================
     // CONTAINER
@@ -13,44 +13,6 @@ export const feedtelaStyles = StyleSheet.create({
 
 
     // =====================================================
-    // HEADER
-    // =====================================================
-
-    header: {
-        height: 64,
-
-        backgroundColor: "#FFFFFF",
-
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-
-        paddingHorizontal: 22,
-
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
-    },
-
-    logo: {
-        fontSize: 24,
-
-        fontWeight: "800",
-
-        color: "#5793B5",
-
-        letterSpacing: 0.2,
-    },
-
-    botaoNotificacao: {
-        width: 36,
-        height: 36,
-
-        alignItems: "center",
-        justifyContent: "center",
-    },
-
-
-    // =====================================================
     // SCROLL
     // =====================================================
 
@@ -59,59 +21,110 @@ export const feedtelaStyles = StyleSheet.create({
     },
 
     scrollContent: {
-        paddingTop: 0,
-        paddingBottom: 15,
-    },
-
-    espacoFinal: {
-        height: 90,
+        paddingBottom: 20,
     },
 
 
     // =====================================================
-    // CARD
+    // HEADER
     // =====================================================
 
-    cardPublicacao: {
-        backgroundColor: "#F4F3F2",
+    header: {
+        height: 62,
 
-        marginHorizontal: 20,
-        marginTop: 16,
+        flexDirection: "row",
 
-        borderRadius: 5,
+        alignItems: "center",
+        justifyContent: "space-between",
 
-        paddingHorizontal: 12,
-        paddingTop: 12,
-        paddingBottom: 9,
+        paddingHorizontal: 22,
+
+        backgroundColor: "#FFFFFF",
+    },
+
+    botaoVoltar: {
+        width: 32,
+        height: 40,
+
+        alignItems: "flex-start",
+        justifyContent: "center",
+    },
+
+    titulo: {
+        fontSize: 23,
+
+        fontWeight: "800",
+
+        color: "#5793B5",
+
+        textAlign: "center",
+
+        flex: 1,
+    },
+
+    botaoCriar: {
+        width: 30,
+        height: 30,
+
+        borderWidth: 2,
+
+        borderColor: "#C32F59",
+
+        borderRadius: 4,
+
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    criarMais: {
+        color: "#C32F59",
+
+        fontSize: 23,
+
+        fontWeight: "500",
+
+        lineHeight: 23,
+
+        marginTop: -2,
     },
 
 
     // =====================================================
-    // INFORMAÇÕES DO USUÁRIO
+    // PUBLICAÇÃO
+    // =====================================================
+
+    publicacao: {
+        paddingHorizontal: 34,
+    },
+
+
+    // =====================================================
+    // USUÁRIO
     // =====================================================
 
     usuario: {
         flexDirection: "row",
+
         alignItems: "center",
+
+        marginTop: 10,
     },
 
     fotoPerfil: {
-        width: 40,
-        height: 40,
+        width: 42,
+        height: 42,
 
-        borderRadius: 20,
+        borderRadius: 21,
 
-        backgroundColor: "#D5D5D5",
+        backgroundColor: "#DDDDDD",
     },
 
     infoUsuario: {
-        flex: 1,
-
-        marginLeft: 10,
+        marginLeft: 9,
     },
 
     nomeUsuario: {
-        fontSize: 14,
+        fontSize: 15,
 
         fontWeight: "700",
 
@@ -119,21 +132,11 @@ export const feedtelaStyles = StyleSheet.create({
     },
 
     horario: {
-        fontSize: 10,
+        fontSize: 11,
 
-        color: "#7D7D7D",
+        color: "#858585",
 
         marginTop: 1,
-    },
-
-    botaoTresPontos: {
-        width: 30,
-        height: 35,
-
-        alignItems: "flex-end",
-        justifyContent: "flex-start",
-
-        paddingTop: 0,
     },
 
 
@@ -144,12 +147,28 @@ export const feedtelaStyles = StyleSheet.create({
     textoPublicacao: {
         fontSize: 13,
 
-        color: "#000000",
+        color: "#222222",
 
-        lineHeight: 20,
+        lineHeight: 21,
 
-        marginTop: 9,
-        marginBottom: 7,
+        marginTop: 17,
+
+        marginBottom: 10,
+    },
+
+
+    // =====================================================
+    // IMAGEM
+    // =====================================================
+
+    imagemPublicacao: {
+        width: "100%",
+
+        height: 87,
+
+        borderRadius: 5,
+
+        backgroundColor: "#DDDDDD",
     },
 
 
@@ -158,11 +177,11 @@ export const feedtelaStyles = StyleSheet.create({
     // =====================================================
 
     acoes: {
+        height: 47,
+
         flexDirection: "row",
 
         alignItems: "center",
-
-        height: 32,
     },
 
     acao: {
@@ -176,7 +195,7 @@ export const feedtelaStyles = StyleSheet.create({
     numeroAcao: {
         fontSize: 13,
 
-        color: "#222222",
+        color: "#333333",
 
         marginLeft: 6,
     },
@@ -193,46 +212,124 @@ export const feedtelaStyles = StyleSheet.create({
 
 
     // =====================================================
-    // BOTÃO +
+    // COMENTÁRIOS
     // =====================================================
 
-    botaoAdicionar: {
-        position: "absolute",
+    areaComentarios: {
+        paddingHorizontal: 42,
 
-        right: 10,
-        bottom: 57,
+        marginTop: 0,
+    },
 
-        width: 48,
-        height: 48,
+    tituloComentarios: {
+        fontSize: 16,
 
-        borderRadius: 24,
+        fontWeight: "800",
 
-        backgroundColor: "#E294A9",
+        color: "#111111",
+
+        marginBottom: 17,
+    },
+
+    comentarioItem: {
+        flexDirection: "row",
+
+        alignItems: "flex-start",
+    },
+
+    fotoComentario: {
+        width: 42,
+        height: 42,
+
+        borderRadius: 21,
+
+        backgroundColor: "#DDDDDD",
+    },
+
+    comentarioConteudo: {
+        flex: 1,
+
+        marginLeft: 10,
+    },
+
+    nomeComentario: {
+        fontSize: 15,
+
+        fontWeight: "700",
+
+        color: "#111111",
+    },
+
+    horarioComentario: {
+        fontSize: 11,
+
+        color: "#858585",
+
+        marginTop: 1,
+    },
+
+    textoComentario: {
+        fontSize: 13,
+
+        color: "#333333",
+
+        marginTop: 4,
+
+        lineHeight: 18,
+    },
+
+
+    // =====================================================
+    // CAMPO DE COMENTÁRIO
+    // =====================================================
+
+    areaEnviar: {
+        height: 40,
+
+        backgroundColor: "#F5F5F5",
+
+        marginHorizontal: 31,
+
+        marginTop: 10,
+
+        borderRadius: 5,
+
+        flexDirection: "row",
+
+        alignItems: "center",
+    },
+
+    inputComentario: {
+        flex: 1,
+
+        height: 40,
+
+        paddingHorizontal: 12,
+
+        paddingVertical: 5,
+
+        fontSize: 13,
+
+        color: "#333333",
+
+        backgroundColor: "transparent",
+    },
+
+    botaoEnviar: {
+        width: 42,
+        height: 40,
 
         alignItems: "center",
         justifyContent: "center",
-
-        elevation: 5,
-
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 4,
     },
 
-    textoMais: {
-        color: "#FFFFFF",
 
-        fontSize: 38,
+    // =====================================================
+    // ESPAÇO FINAL
+    // =====================================================
 
-        fontWeight: "300",
-
-        lineHeight: 42,
-
-        marginTop: -3,
+    espacoFinal: {
+        height: 70,
     },
 
 
@@ -314,9 +411,11 @@ export const feedtelaStyles = StyleSheet.create({
         position: "absolute",
 
         bottom: 0,
+
         left: 6,
 
         width: 4,
+
         height: 7,
 
         backgroundColor: "#C32F59",
@@ -360,12 +459,3 @@ export const feedtelaStyles = StyleSheet.create({
     },
 
 });
-
-
-// =========================================================
-// IMPORTANTE PARA O EXPO ROUTER
-// =========================================================
-
-export default function FeedtelaStyles() {
-    return null;
-}
