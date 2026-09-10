@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import {
     View,
     Text,
+    TextInput,
     TouchableOpacity,
+    Image,
 } from "react-native";
-import { editarperfilStySheet } from "./editarperfilStyles";
 
-import { useFonts, Oswald_600SemiBold } from "@expo-google-fonts/oswald";
-import { Image } from "../../../../assets/backIcon.png";
+import { editarperfilStySheet } from "./editarperfilStyles";
 import Header from "../../../components/header/Header";
+
+
 
 export default function EditarPerfil() {
 
@@ -16,17 +18,72 @@ export default function EditarPerfil() {
     const [usuario, setUsuario] = useState("Lucas.moura");
     const [bio, setBio] = useState("Jogador do São Paulo Futebol Clube.");
 
-    let [fontsLoaded] = useFonts({
-        Oswald_600SemiBold,
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
-
     return (
         <View style={editarperfilStySheet.container}>
-            <Header tituloHeader="Editar Perfil" corText="#588EB2"  />
+
+            <View style={editarperfilStySheet.header}>
+
+                <TouchableOpacity onPress={() => { }}>
+                    <Header tituloHeader="Ed" corText="#588EB2" />
+                </TouchableOpacity>
+
+                <Text style={editarperfilStySheet.titulo}>
+                    Editar Perfil
+                </Text>
+
+            </View>
+
+            <View style={editarperfilStySheet.fotoContainer}>
+
+                <Image
+                    // source={require("../../../../assets/logo.png")}
+                    style={editarperfilStySheet.foto}
+                />
+
+                <Text style={editarperfilStySheet.camera}>
+                    tti
+                </Text>
+
+            </View>
+
+            <Text style={editarperfilStySheet.textoInicial}>
+                Nome
+            </Text>
+
+            <TextInput
+                style={editarperfilStySheet.containerUsuario}
+                value={nome}
+                onChangeText={setNome}
+            />
+
+            <Text style={editarperfilStySheet.textoInicial}>
+                Usuário
+            </Text>
+
+            <TextInput
+                style={editarperfilStySheet.containerUsuario}
+                value={usuario}
+                onChangeText={setUsuario}
+            />
+
+            <Text style={editarperfilStySheet.textoInicial}>
+                Bio
+            </Text>
+
+            <TextInput
+                style={editarperfilStySheet.textoBio}
+                value={bio}
+                onChangeText={setBio}
+                multiline
+            />
+
+            <TouchableOpacity style={editarperfilStySheet.botao}>
+                <Text style={editarperfilStySheet.textoBotao}>
+                    Salvar alterações
+                </Text>
+            </TouchableOpacity>
+
         </View>
+
     )
 }
