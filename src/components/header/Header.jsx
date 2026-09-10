@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchebleOpacity } from 'react-native';
 import { Image } from 'react-native';
 import backIcon from '../../../assets/backIcon.png';
 import headerStyles from './headerStyles';
