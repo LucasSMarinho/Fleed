@@ -1,8 +1,19 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, ScrollView, TouchableOpacity, Image, TextInput } from "react-native";
+import {
+    View,
+    Text,
+    ScrollView,
+    TouchableOpacity,
+    Image,
+    TextInput,
+} from "react-native";
 import { useState } from "react";
 import styles from "./novaPublicacaoStyles";
 import { useRouter } from "expo-router";
+import ImagemIcon from "../../../../assets/image.svg";
+import LocalizacaoIcon from "../../../../assets/localizacao.svg";
+import Fundo from "../../../../assets/fundo.svg";
+
 
 export default function NovaPublicacao() {
     const router = useRouter();
@@ -27,10 +38,9 @@ export default function NovaPublicacao() {
 
             <ScrollView
                 contentContainerStyle={styles.scroll}
+                showsVerticalScrollIndicator={false}
             >
-
                 <View style={styles.header}>
-
                     <TouchableOpacity
                         style={styles.botaoVoltar}
                         onPress={() => router.back()}
@@ -44,7 +54,6 @@ export default function NovaPublicacao() {
                     <Text style={styles.tituloPagina}>
                         Nova Publicação
                     </Text>
-
                 </View>
 
                 <Text style={styles.tituloCampo}>
@@ -52,15 +61,55 @@ export default function NovaPublicacao() {
                 </Text>
 
                 <TextInput
-                style={styles.campoDescricao}
-                value={descricao}
-                onChangeText={setDescricao}
-                placeholder="Em nada!!"
-                multiline
-                textAlignVertical="top"
-               />
+                    style={styles.campoDescricao}
+                    value={descricao}
+                    onChangeText={setDescricao}
+                    placeholder="Em nada!!"
+                    multiline
+                    textAlignVertical="top"
+                />
 
+                <View style={styles.opcoes}>
+                    <TouchableOpacity
+                        style={styles.opcao}
+                        onPress={() => console.log("Selecionar imagem")}
+                    >
+                        <ImagemIcon
+                            width={20}
+                            height={20}
+                        />
+
+                        <Text style={styles.textoOpcao}>
+                            Imagem
+                        </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={styles.opcao}
+                        onPress={() => console.log("Selecionar localização")}
+                    >
+                        <LocalizacaoIcon
+                            width={20}
+                            height={20}
+                        />
+
+                        <Text style={styles.textoOpcao}>
+                            Localização
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity
+                    style={styles.publicar}
+                    onPress={publicar}
+                >
+                    <Text style={styles.textoPublicar}>
+                        Publicar
+                    </Text>
+                </TouchableOpacity>
             </ScrollView>
+
+            <Fundo style={styles.fundo} />
         </View>
     );
 }
