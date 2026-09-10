@@ -17,7 +17,7 @@ export default function Header(props) {
 
     return (
         <>
-            <View style={headerStyles.container}>
+            <View style={[headerStyles.container, {backgroundColor: `${props.corHeader}`}]}>
                 <TouchableOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
                 </TouchableOpacity>

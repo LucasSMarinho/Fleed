@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const headerStyles = StyleSheet.create({
   container: {
-    backgroundColor: '#588EB2',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
