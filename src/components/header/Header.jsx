@@ -20,12 +20,7 @@ export default function Header(props) {
             <View style={headerStyles.container}>
                 <TouchableOpacity>
                 <Image source={backIcon} style={{height: 13, width: 13}}/>
-<<<<<<< HEAD
                 </TouchableOpacity>
-                <Image source={backIcon} style={{height: 13, width: 13}}/>
-=======
-                </TouchebleOpacity>
->>>>>>> Edita--Perfil
                 <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
             </View>
         </>
