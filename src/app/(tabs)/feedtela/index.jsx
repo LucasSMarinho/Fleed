@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
     View,
     Text,
@@ -6,9 +7,19 @@ import {
     TouchableOpacity,
     Image,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+
 import { useRouter } from "expo-router";
 
+// SVGs do seu assets
+import Sino from "../../../../assets/sino.svg";
+import ComentarioAzul from "../../../../assets/comentario_azul.svg";
+import CoracaoVazio from "../../../../assets/coracao_vazio.svg";
+import CoracaoPreenchido from "../../../../assets/coracao-preenchido.svg";
+import Salvar from "../../../../assets/salvar.svg";
+import TresPontos from "../../../../assets/tres_pontos.svg";
+import Perfil from "../../../../assets/perfil.svg";
+
+// Styles
 import { feedtelaStyles } from "./feedtelaStyles";
 
 export default function FeedTela() {
@@ -38,17 +49,24 @@ export default function FeedTela() {
         },
     ]);
 
+    // CURTIR PUBLICAÇÃO
     const curtirPublicacao = (id) => {
+
         setPublicacoes((lista) =>
             lista.map((publicacao) => {
+
                 if (publicacao.id === id) {
+
+                    const novoEstadoCurtido = !publicacao.curtido;
 
                     return {
                         ...publicacao,
-                        curtido: !publicacao.curtido,
-                        curtidas: publicacao.curtido
-                            ? publicacao.curtidas - 1
-                            : publicacao.curtidas + 1,
+
+                        curtido: novoEstadoCurtido,
+
+                        curtidas: novoEstadoCurtido
+                            ? publicacao.curtidas + 1
+                            : publicacao.curtidas - 1,
                     };
                 }
 
@@ -57,45 +75,64 @@ export default function FeedTela() {
         );
     };
 
+    // ABRIR PERFIL
+    const abrirPerfil = () => {
+        router.push("/perfil");
+    };
+
+    // ABRIR NOTIFICAÇÕES
+    const abrirNotificacoes = () => {
+        router.push("/notificacoes");
+    };
+
     return (
         <View style={feedtelaStyles.container}>
 
-            {/* CONTEÚDO DO FEED */}
+            {/* ================================================= */}
+            {/* HEADER */}
+            {/* ================================================= */}
+
+            <View style={feedtelaStyles.header}>
+
+                <Text style={feedtelaStyles.logo}>
+                    FLEED
+                </Text>
+
+                <TouchableOpacity
+                    style={feedtelaStyles.botaoNotificacao}
+                    onPress={abrirNotificacoes}
+                    activeOpacity={0.7}
+                >
+                    <Sino
+                        width={28}
+                        height={28}
+                    />
+                </TouchableOpacity>
+
+            </View>
+
+
+            {/* ================================================= */}
+            {/* FEED / SCROLL */}
+            {/* ================================================= */}
+
             <ScrollView
                 style={feedtelaStyles.scroll}
                 contentContainerStyle={feedtelaStyles.scrollContent}
                 showsVerticalScrollIndicator={false}
             >
 
-                {/* HEADER */}
-                <View style={feedtelaStyles.header}>
-
-                    <Text style={feedtelaStyles.logo}>
-                        FLEED
-                    </Text>
-
-                    <TouchableOpacity
-                        style={feedtelaStyles.botaoNotificacao}
-                        onPress={() => router.push("/notificacoes")}
-                    >
-                        <Ionicons
-                            name="notifications-outline"
-                            size={29}
-                            color="#000"
-                        />
-                    </TouchableOpacity>
-
-                </View>
-
-                {/* PUBLICAÇÕES */}
                 {publicacoes.map((publicacao) => (
 
                     <View
-                        style={feedtelaStyles.cardPublicacao}
                         key={publicacao.id}
+                        style={feedtelaStyles.cardPublicacao}
                     >
 
-                        {/* USUÁRIO */}
+                        {/* ===================================== */}
+                        {/* CABEÇALHO DA PUBLICAÇÃO */}
+                        {/* ===================================== */}
+
                         <View style={feedtelaStyles.usuario}>
 
                             <Image
@@ -115,44 +152,55 @@ export default function FeedTela() {
 
                             </View>
 
-                            <TouchableOpacity>
-                                <Ionicons
-                                    name="ellipsis-vertical"
-                                    size={23}
-                                    color="#000"
+                            <TouchableOpacity
+                                style={feedtelaStyles.botaoTresPontos}
+                                activeOpacity={0.7}
+                            >
+                                <TresPontos
+                                    width={22}
+                                    height={22}
                                 />
                             </TouchableOpacity>
 
                         </View>
 
+
+                        {/* ===================================== */}
                         {/* TEXTO */}
+                        {/* ===================================== */}
+
                         <Text style={feedtelaStyles.textoPublicacao}>
                             {publicacao.texto}
                         </Text>
 
+
+                        {/* ===================================== */}
                         {/* AÇÕES */}
+                        {/* ===================================== */}
+
                         <View style={feedtelaStyles.acoes}>
+
+                            {/* CURTIR */}
 
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
                                 onPress={() =>
                                     curtirPublicacao(publicacao.id)
                                 }
+                                activeOpacity={0.7}
                             >
 
-                                <Ionicons
-                                    name={
-                                        publicacao.curtido
-                                            ? "heart"
-                                            : "heart-outline"
-                                    }
-                                    size={25}
-                                    color={
-                                        publicacao.curtido
-                                            ? "#C32F59"
-                                            : "#C32F59"
-                                    }
-                                />
+                                {publicacao.curtido ? (
+                                    <CoracaoPreenchido
+                                        width={23}
+                                        height={23}
+                                    />
+                                ) : (
+                                    <CoracaoVazio
+                                        width={23}
+                                        height={23}
+                                    />
+                                )}
 
                                 <Text style={feedtelaStyles.numeroAcao}>
                                     {publicacao.curtidas}
@@ -160,14 +208,17 @@ export default function FeedTela() {
 
                             </TouchableOpacity>
 
+
+                            {/* COMENTÁRIOS */}
+
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
+                                activeOpacity={0.7}
                             >
 
-                                <Ionicons
-                                    name="chatbubble-outline"
-                                    size={24}
-                                    color="#4A9ACB"
+                                <ComentarioAzul
+                                    width={23}
+                                    height={23}
                                 />
 
                                 <Text style={feedtelaStyles.numeroAcao}>
@@ -176,14 +227,19 @@ export default function FeedTela() {
 
                             </TouchableOpacity>
 
+
+                            {/* SALVAR */}
+
                             <TouchableOpacity
-                                style={feedtelaStyles.salvar}
+                                style={feedtelaStyles.botaoSalvar}
+                                activeOpacity={0.7}
                             >
-                                <Ionicons
-                                    name="bookmark-outline"
-                                    size={25}
-                                    color="#C32F59"
+
+                                <Salvar
+                                    width={23}
+                                    height={23}
                                 />
+
                             </TouchableOpacity>
 
                         </View>
@@ -192,75 +248,26 @@ export default function FeedTela() {
 
                 ))}
 
-                {/* ESPAÇO PARA O BOTÃO FLUTUANTE */}
-                <View style={{ height: 100 }} />
+
+                {/* Espaço no final para o conteúdo não ficar atrás do botão + */}
+
+                <View style={feedtelaStyles.espacoFinal} />
 
             </ScrollView>
 
-            {/* BOTÃO + */}
+
+            {/* ================================================= */}
+            {/* BOTÃO FLUTUANTE */}
+            {/* ================================================= */}
+
             <TouchableOpacity
                 style={feedtelaStyles.botaoAdicionar}
-                onPress={() => router.push("/criar")}
+                activeOpacity={0.8}
             >
-                <Ionicons
-                    name="add"
-                    size={40}
-                    color="#FFFFFF"
-                />
+                <Text style={feedtelaStyles.textoMais}>
+                    +
+                </Text>
             </TouchableOpacity>
-
-            {/* MENU INFERIOR */}
-            <View style={feedtelaStyles.footer}>
-
-                {/* HOME */}
-                <TouchableOpacity
-                    style={feedtelaStyles.itemFooter}
-                    onPress={() => router.push("/feedtela")}
-                >
-                    <Ionicons
-                        name="home-outline"
-                        size={27}
-                        color="#FFFFFF"
-                    />
-                </TouchableOpacity>
-
-                {/* CRIAR */}
-                <TouchableOpacity
-                    style={feedtelaStyles.itemFooter}
-                    onPress={() => router.push("/criar")}
-                >
-                    <Ionicons
-                        name="add-square-outline"
-                        size={29}
-                        color="#FFFFFF"
-                    />
-                </TouchableOpacity>
-
-                {/* NOTIFICAÇÕES */}
-                <TouchableOpacity
-                    style={feedtelaStyles.itemFooter}
-                    onPress={() => router.push("/notificacoes")}
-                >
-                    <Ionicons
-                        name="notifications-outline"
-                        size={28}
-                        color="#FFFFFF"
-                    />
-                </TouchableOpacity>
-
-                {/* PERFIL */}
-                <TouchableOpacity
-                    style={feedtelaStyles.itemFooter}
-                    onPress={() => router.push("/perfil")}
-                >
-                    <Ionicons
-                        name="person-circle-outline"
-                        size={30}
-                        color="#FFFFFF"
-                    />
-                </TouchableOpacity>
-
-            </View>
 
         </View>
     );
