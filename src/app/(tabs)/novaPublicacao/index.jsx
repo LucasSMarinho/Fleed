@@ -1,20 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import {
-    View,
-    Text,
-    ScrollView,
-    TouchableOpacity,
-    Image,
-    TextInput,
-} from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Image, TextInput } from "react-native";
 import { useState } from "react";
 import styles from "./novaPublicacaoStyles";
 import { useRouter } from "expo-router";
-import {
-    Oswald_600SemiBold,
-    Oswald_400Regular,
-    useFonts,
-} from "@expo-google-fonts/oswald";
+import { Oswald_600SemiBold, Oswald_400Regular, useFonts } from "@expo-google-fonts/oswald";
 import ImagemIcon from "../../../../assets/image.svg";
 import LocalizacaoIcon from "../../../../assets/localizacao.svg";
 import Fundo from "../../../../assets/fundo.svg";
