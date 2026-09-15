@@ -78,7 +78,7 @@ export default function Detalhes() {
 
                     <TouchableOpacity
                         style={detalhesStyles.botaoVoltar}
-                        onPress={() => router.back()}
+                        onPress={() => router.push("/feedtela")}
                         activeOpacity={0.7}
                     >
                         <VoltarRosa

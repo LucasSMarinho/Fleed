@@ -133,7 +133,7 @@ export default function FeedTela() {
 
                 <TouchableOpacity
                     style={feedtelaStyles.botaoNotificacao}
-                    onPress={() => router.push("/notificacoes/noticacoes")}
+                    onPress={() => router.push("/notificacoes")}
                     activeOpacity={0.7}
                 >
                     <Sino
@@ -269,6 +269,7 @@ export default function FeedTela() {
 
             <TouchableOpacity
                 style={feedtelaStyles.botaoAdicionar}
+                onPress={() => router.push("/novaPublicacao")}
                 activeOpacity={0.8}
             >
                 <Text style={feedtelaStyles.textoMais}>
