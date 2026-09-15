@@ -6,43 +6,89 @@ export default function TabsLayout() {
             <Tabs.Screen
                 name="login"
                 options={{
-                    title: "Início",
+                    title: "login",
                     headerShown: false,
+                    href: null,
+                }}
+            />
+            <Tabs.Screen
+                name="login/perfilStyles"
+                options={{
+                    href: null,
                 }}
             />
             <Tabs.Screen
                 name="feedtela"
                 options={{
-                    title: "Início",
+                    title: "feed",
                     headerShown: false,
+                }}
+            />
+            <Tabs.Screen
+                name="feedtela/feedtelaStyles"
+                options={{
+                    href: null,
                 }}
             />
             <Tabs.Screen
                 name="editarperfil"
                 options={{
-                    title: "Início",
+                    title: "editar perfil",
                     headerShown: false,
+                    href: null,
+                }}
+            />
+            <Tabs.Screen
+                name="editarperfil/editarperfilStyles"
+                options={{
+                    href: null,
                 }}
             />
             <Tabs.Screen
                 name="notificacoes"
                 options={{
-                    title: "Início",
+                    title: "notificacoes",
                     headerShown: false,
                 }}
             />
             <Tabs.Screen
                 name="novaPublicacao"
                 options={{
-                    title: "Início",
+                    title: "novaPublicacao",
                     headerShown: false,
+                    href: null,
+                }}
+            />
+            <Tabs.Screen
+                name="novaPublicacao/novaPublicacaoStyles"
+                options={{
+                    href: null,
                 }}
             />
             <Tabs.Screen
                 name="perfilusuario"
                 options={{
-                    title: "Início",
+                    title: "perfilusuario",
                     headerShown: false,
+                }}
+            />
+            <Tabs.Screen
+                name="perfilusuario/perfilusuarioStyles"
+                options={{
+                    href: null,
+                }}
+            />
+            <Tabs.Screen
+                name="detalhes"
+                options={{
+                    title: "detalhes",
+                    headerShown: false,
+                }}
+            />
+            <Tabs.Screen
+                name="detalhes/detalhesStyles"
+                options={{
+                    href: null,
                 }}
             />
         </Tabs>

@@ -23,7 +23,7 @@ export default function App() {
 
       <TouchableOpacity
         style={styles.entrar}
-        onPress={() => router.push('/perfil')}
+        onPress={() => router.push('/login')}
       >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
