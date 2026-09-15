@@ -1,150 +1,176 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-const perfilusuarioStyles   = StyleSheet.create({
-   container: {
-    flex: 1,
-    backgroundColor: "#F1F1EF",
-  },
 
-  topBar: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 12,
-    paddingBottom: 16,
-  },
+export const perfilusuarioStyles = StyleSheet.create({
 
-  backButton: {
-    position: "absolute",
-    left: 20,
-    padding: 4,
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#ffffff",
+    },
 
-  backButtonText: {
-    fontSize: 22,
-    color: "#C41E4F",
-    fontWeight: "700",
-  },
 
-  title: {
-    fontSize: 24,
-    fontWeight: "700",
-    color: "#4A7FA5",
-  },
+    scroll: {
+        paddingBottom: 80,
+    },
 
-  scrollContent: {
-    alignItems: "center",
-    paddingHorizontal: 20,
-    paddingBottom: 24,
-  },
 
-  avatarWrap: {
-    width: 130,
-    height: 130,
-    borderRadius: 65,
-    overflow: "hidden",
-    marginBottom: 14,
-  },
+    /* TÍTULO */
 
-  avatarImage: {
-    width: "100%",
-    height: "100%",
-  },
+    titulo: {
+        textAlign: "center",
+        fontSize: 26,
+        fontWeight: "bold",
+        color: "#537A91",
+        marginTop: 25,
+    },
 
-  avatarPlaceholder: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#D9D3D9",
-    alignItems: "center",
-    justifyContent: "center",
-  },
 
-  avatarPlaceholderText: {
-    fontSize: 36,
-    fontWeight: "700",
-    color: "#4A7FA5",
-  },
+    /* BOTÃO VOLTAR */
 
-  nomeRow: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
+    botaoVoltar: {
+        position: "absolute",
+        left: 20,
+        top: 32,
+        zIndex: 10,
+    },
 
-  nome: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#2E2E2E",
-  },
 
-  editButton: {
-    marginLeft: 8,
-    padding: 4,
-  },
+    iconeVoltar: {
+        width: 27,
+        height: 27,
+    },
 
-  editButtonText: {
-    fontSize: 16,
-    color: "#C41E4F",
-  },
 
-  usuario: {
-    fontSize: 14,
-    color: "#8A8A87",
-    marginTop: 2,
-    marginBottom: 18,
-  },
+    /* FOTO DO PERFIL */
 
-  statsRow: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-around",
-    marginBottom: 18,
-  },
+    areaFoto: {
+        alignItems: "center",
+        marginTop: 15,
+    },
 
-  statItem: {
-    alignItems: "center",
-  },
 
-  statNumero: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#2E2E2E",
-  },
+    fotoPerfil: {
+       width: 90,
+        height: 90,
+        borderRadius: 50,
+    },
 
-  statLabel: {
-    fontSize: 13,
-    color: "#8A8A87",
-    marginTop: 2,
-  },
 
-  bio: {
-    fontSize: 14,
-    color: "#C41E4F",
-    fontWeight: "600",
-    marginBottom: 20,
-  },
+    /* NOME */
 
-  tabsRow: {
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: "space-between",
-    marginBottom: 16,
-  },
+    areaNome: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 10,
+        paddingLeft: 30,
+    },
 
-  tabButton: {
-    padding: 8,
-  },
 
-  tabButtonAtiva: {
-    borderBottomWidth: 2,
-    borderBottomColor: "#C41E4F",
-  },
+    nome: {
+        fontSize: 23,
+        fontWeight: "bold",
+        color: "#171717",
+    },
 
-  tabIcon: {
-    fontSize: 20,
-    color: "#C41E4F",
-  },
 
-  
+    iconeCaneta: {
+        width: 18,
+        height: 18,
+        marginLeft: 6,
+    },
+
+
+    /* USUÁRIO */
+
+    usuario: {
+        textAlign: "center",
+        fontSize: 17,
+        color: "#555555",
+        marginTop: 2,
+    },
+
+
+    /* INFORMAÇÕES */
+
+    informacoes: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        width: "100%",
+        marginTop: 40,
+        paddingHorizontal: 10,
+    },
+
+
+    info: {
+        flex: 1,
+        alignItems: "center",
+    },
+
+
+    numero: {
+        fontSize: 21,
+        fontWeight: "bold",
+        color: "#171717",
+    },
+
+
+    textoInfo: {
+        fontSize: 17,
+        color: "#222222",
+        marginTop: 3,
+    },
+
+
+    /* BIO */
+
+    bio: {
+        textAlign: "center",
+        fontSize: 17,
+        color: "#222222",
+        marginTop: 22,
+    },
+
+
+    /* MENU GALERIA */
+
+    menuGaleria: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingHorizontal: 60,
+        marginTop: 55,
+        height: 45,
+    },
+
+
+    iconeSalvar: {
+        width: 30,
+        height: 30,
+    },
+
+
+    /* GALERIA */
+
+        /* GALERIA */
+
+    galeria: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        width: "100%",
+        justifyContent: "space-between",
+        marginTop: 5,
+    },
+
+
+    fotoGaleria: {
+        width: "31.5%",
+        height: 130,
+        marginBottom: 6,
+        resizeMode: "cover",
+    },
+
+
 });
 
 export default perfilusuarioStyles;

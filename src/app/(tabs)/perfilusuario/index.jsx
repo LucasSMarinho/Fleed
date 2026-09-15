@@ -1,127 +1,204 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import { useRouter } from "expo-router";
 
+import VoltarIcon from "../../../../assets/voltar_rosa.svg";
+
+import Header from "../../../components/header/Header"
+import GradeIcon from "../../../../assets/grade.svg";
+import SalvarIcon from "../../../../assets/salvar.svg";
+import CanetaIcon from "../../../../assets/caneta.svg"
 import { perfilusuarioStyles } from "./perfilusuarioStyles";
 
 
-const usuario = {
-  nome: "Lucas Moura",
-  usuario: "@lucas.moura",
-  bio: "Jogador do SPFC!",
-  foto: null, // URL da foto
-  publicacoes: 234,
-  seguidores: 1230,
-  seguindo: 289,
+export default function PerfilUsuario() {
 
-};
+  const router = useRouter();
 
 
-const fotos = [
-  { id: "1", uri: null },
-  { id: "2", uri: null },
-  { id: "3", uri: null },
-]
+  const publicacoes = [
+
+    {
+      id: 1,
+      imagem: require("../../../../assets/imagemperfil.png"),
+    },
+
+    {
+      id: 2,
+      imagem: require("../../../../assets/imagemperfil2.png"),
+    },
+
+    {
+      id: 3,
+      imagem: require("../../../../assets/imagemperfil3.png"),
+    },
+
+    {
+      id: 4,
+      imagem: require("../../../../assets/imagemperfil3.png"),
+    },
+
+  ];
 
 
+  return (
 
-export const Perfil = ({ navigation }) => {
-  const [aba, setAba] = useState("salvos"); // publicacoes salvos
+    <View style={perfilusuarioStyles.container}>
 
-  const inicialNome = usuario.nome ? usuario.nome.charAt(0).toUpperCase() : "Usuario";
-
-    return(
-        <SafeAreaProvider>
-            <SafeAreaView style={PerfilStyle.container} edges={["top", "bottom"]}>
-
-
-                <View>
-                    <TouchableOpacity>
-                <Image source={backIcon} style={{height: 13, width: 13}}/>
-                </TouchableOpacity>
-                <Text style={[headerStyles.text, {color: `${props.corText}`}]} > {props.tituloHeader} </Text>
-                </View>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={perfilusuarioStyles.scroll}
+      >
 
 
+        {/* Header */}
+
+        <Header corSeta="rosa" tituloHeader="Perfil" corText="#588eb2"/>
 
 
-                
-                <ScrollView  showsVerticalScrollIndicator={false}
-          contentContainerStyle={PerfilStyle.scrollContent}
-          >
+        {/* FOTO DO PERFIL */}
 
-            <View style={PerfilStyle.avatarWrap}>
-            {usuario.foto ? (
-              <Image source={{ uri: usuario.foto }} style={PerfilStyle.avatarImage} />
-            ) : (
-              <View style={PerfilStyle.avatarPlaceholder}>
-                <Text style={PerfilStyle.avatarPlaceholderText}>{inicialNome}</Text>
-              </View>
-            )}
+        <View style={perfilusuarioStyles.areaFoto}>
+
+          <Image
+            source={require("../../../../assets/fotodeperfil.png")}
+            style={perfilusuarioStyles.fotoPerfil}
+          />
+
+        </View>
+
+
+        {/* NOME */}
+
+        <View style={perfilusuarioStyles.areaNome}>
+
+          <Text style={perfilusuarioStyles.nome}>
+            Lucas Moura
+          </Text>
+
+          <TouchableOpacity onPress={() => router.replace("/editarperfil")}>
+
+            <CanetaIcon width={18} height={18} style={perfilusuarioStyles.iconeCaneta} />
+
+          </TouchableOpacity>
+
+        </View>
+
+
+        {/* USUÁRIO */}
+
+        <Text style={perfilusuarioStyles.usuario}>
+          @lucas.moura
+        </Text>
+
+
+        {/* INFORMAÇÕES */}
+
+        <View style={perfilusuarioStyles.informacoes}>
+
+
+          <View style={perfilusuarioStyles.info}>
+
+            <Text style={perfilusuarioStyles.numero}>
+              234
+            </Text>
+
+            <Text style={perfilusuarioStyles.textoInfo}>
+              Publicações
+            </Text>
+
           </View>
 
 
+          <View style={perfilusuarioStyles.info}>
 
-          <View style={PerfilStyle.nomeRow}>
-            <Text style={PerfilStyle.nome}>{usuario.nome}</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("EditarPerfil")}
-              style={PerfilStyle.editButton}
-            >
-              <Text style={PerfilStyle.editButtonText}></Text>
-            </TouchableOpacity>
+            <Text style={perfilusuarioStyles.numero}>
+              1230
+            </Text>
+
+            <Text style={perfilusuarioStyles.textoInfo}>
+              Seguidores
+            </Text>
+
           </View>
 
 
+          <View style={perfilusuarioStyles.info}>
 
+            <Text style={perfilusuarioStyles.numero}>
+              289
+            </Text>
 
-<Text style={PerfilStyle.usuario}>{usuario.usuario}</Text>
+            <Text style={perfilusuarioStyles.textoInfo}>
+              Seguindo
+            </Text>
 
-          <View style={PerfilStyle.statsRow}>
-            <View style={PerfilStyle.statItem}>
-              <Text style={PerfilStyle.statNumero}>{usuario.publicacoes}</Text>
-              <Text style={PerfilStyle.statLabel}>Publicações</Text>
-            </View>
-
-            <View style={PerfilStyle.statItem}>
-              <Text style={PerfilStyle.statNumero}>{usuario.seguidores}</Text>
-              <Text style={PerfilStyle.statLabel}>Seguidores</Text>
-            </View>
-
-            <View style={PerfilStyle.statItem}>
-              <Text style={PerfilStyle.statNumero}>{usuario.seguindo}</Text>
-              <Text style={PerfilStyle.statLabel}>Seguindo</Text>
-            </View>
           </View>
 
-          <Text style={PerfilStyle.bio}>{usuario.bio}</Text>
 
-          <View style={PerfilStyle.tabsRow}>
-            <TouchableOpacity
-              style={[
-                PerfilStyle.tabButton,
-                aba === "salvos" && PerfilStyle.tabButtonAtiva,
-              ]}
-              onPress={() => setAba("salvos")}
-            >
-              <Text style={PerfilStyle.tabIcon}>▦</Text>
-            </TouchableOpacity>
+        </View>
 
-            
-            
-          </View>
-        </ScrollView>
-      </SafeAreaView>
 
-      
-    </SafeAreaProvider>
+        {/* BIO */}
+
+        <Text style={perfilusuarioStyles.bio}>
+          Jogador do SPFC!
+        </Text>
+
+
+        {/* ÍCONES DA GALERIA */}
+
+        <View style={perfilusuarioStyles.menuGaleria}>
+
+
+          <TouchableOpacity >
+
+            <GradeIcon
+              flexDirection="row"
+              // justifyContent= "space-between"
+              // alignItems= "center"
+              // paddingHorizontal={60}
+              marginTop={50}
+              height={50}
+              width={25}
+            />
+
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <SalvarIcon
+              // paddingHorizontal={60}
+              marginTop={50}
+              height={50}
+              width={25}
+            />
+          </TouchableOpacity>
+
+
+        </View>
+
+
+        {/* PUBLICAÇÕES */}
+
+        <View style={perfilusuarioStyles.galeria}>
+
+          {publicacoes.map((publicacao) => (
+
+            <Image
+              key={publicacao.id}
+              source={publicacao.imagem}
+              style={perfilusuarioStyles.fotoGaleria}
+            />
+
+          ))}
+
+        </View>
+
+
+      </ScrollView>
+
+
+    </View>
+
   );
-};
-                
- 
+
+}

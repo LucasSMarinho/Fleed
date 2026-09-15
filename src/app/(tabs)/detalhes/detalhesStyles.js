@@ -31,11 +31,13 @@ export const detalhesStyles = StyleSheet.create({
 
     header: {
         height: 62,
+        width: "100%",
 
         flexDirection: "row",
 
         alignItems: "center",
         justifyContent: "space-between",
+            
 
         paddingHorizontal: 22,
 
