@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import CoracaoP from '../../../../assets/coracao-preenchido.svg';
 import Comentario from '../../../../assets/comentario.svg';
 import Perfil from '../../../../assets/perfil.svg';
+import Header from '../../../components/header/Header'
+import {NotificacoesStyles} from './notificacoes'
 
 export default function Notificacoes() {
   const notificacoes = [
@@ -41,15 +43,15 @@ export default function Notificacoes() {
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={NotificacoesStyles.container}>
+      <View style={{width: "100%"}}>
+      <Header corSeta="rosa" tituloHeader="Notificações" corText="#588EB2"/>
+      </View>
 
-      <Text style={styles.title}>
-        Notificações
-      </Text>
 
       <ScrollView
-        style={styles.lista}
-        contentContainerStyle={styles.listaConteudo}
+        style={NotificacoesStyles.lista}
+        contentContainerStyle={NotificacoesStyles.listaConteudo}
         showsVerticalScrollIndicator={false}
       >
         {notificacoes.map((notificacao, index) => {
@@ -57,7 +59,7 @@ export default function Notificacoes() {
 
           return (
             <View
-              style={styles.notificacao}
+              style={NotificacoesStyles.notificacao}
               key={index}
             >
 
@@ -65,19 +67,19 @@ export default function Notificacoes() {
               <Icone
                 width={30}
                 height={30}
-                style={styles.icone}
+                style={NotificacoesStyles.icone}
               />
 
-              <View style={styles.textos}>
+              <View style={NotificacoesStyles.textos}>
 
-                <Text style={styles.texto}>
-                  <Text style={styles.nome}>
+                <Text style={NotificacoesStyles.texto}>
+                  <Text style={NotificacoesStyles.nome}>
                     {notificacao.nome}
                   </Text>{' '}
                   {notificacao.texto}
                 </Text>
 
-                <Text style={styles.horario}>
+                <Text style={NotificacoesStyles.horario}>
                   Há 2h
                 </Text>
 
@@ -88,7 +90,7 @@ export default function Notificacoes() {
         })}
       </ScrollView>
 
-      <View style={styles.navbar}>
+      <View style={NotificacoesStyles.navbar}>
 
 
       </View>
@@ -97,66 +99,3 @@ export default function Notificacoes() {
   );
 }
 
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-
-  title: {
-    marginTop: 25,
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#6D95AA',
-  },
-
-  lista: {
-    width: '90%',
-    flex: 1,
-    marginTop: 50,
-  },
-
-  listaConteudo: {
-    paddingBottom: 80,
-  },
-
-  notificacao: {
-    width: '100%',
-    height: 65,
-    backgroundColor: '#DC97A5',
-    borderRadius: 7,
-    marginBottom: 18,
-
-    flexDirection: 'row',
-    alignItems: 'center',
-
-    paddingHorizontal: 16,
-  },
-
-  icone: {
-    marginRight: 16,
-  },
-
-  textos: {
-    flex: 1,
-  },
-
-  texto: {
-    color: '#fff',
-    fontSize: 14,
-  },
-
-  nome: {
-    fontWeight: 'bold',
-  },
-
-  horario: {
-    color: '#F5DCE1',
-    fontSize: 11,
-    marginTop: 3,
-  },
-
-
-});
