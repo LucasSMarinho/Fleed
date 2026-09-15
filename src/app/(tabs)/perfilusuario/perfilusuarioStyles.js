@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 export const perfilusuarioStyles = StyleSheet.create({
 
     container: {
@@ -7,43 +8,51 @@ export const perfilusuarioStyles = StyleSheet.create({
         backgroundColor: "#ffffff",
     },
 
+
     scroll: {
-        paddingBottom: 90,
+        paddingBottom: 80,
     },
 
-    /* CABEÇALHO */
 
-    header: {
-        height: 90,
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-    },
+    /* TÍTULO */
 
     titulo: {
-        fontSize: 36,
+        textAlign: "center",
+        fontSize: 26,
         fontWeight: "bold",
-        color: "#6485a6",
+        color: "#537A91",
+        marginTop: 25,
     },
+
+
+    /* BOTÃO VOLTAR */
 
     botaoVoltar: {
         position: "absolute",
         left: 20,
-        top: 30,
+        top: 32,
+        zIndex: 10,
     },
 
 
-    /* FOTO */
+    iconeVoltar: {
+        width: 27,
+        height: 27,
+    },
+
+
+    /* FOTO DO PERFIL */
 
     areaFoto: {
         alignItems: "center",
-        marginTop: 0,
+        marginTop: 15,
     },
 
+
     fotoPerfil: {
-        width: 155,
-        height: 155,
-        borderRadius: 100,
+       width: 90,
+        height: 90,
+        borderRadius: 50,
     },
 
 
@@ -51,17 +60,28 @@ export const perfilusuarioStyles = StyleSheet.create({
 
     areaNome: {
         flexDirection: "row",
-        justifyContent: "center",
         alignItems: "center",
+        justifyContent: "center",
         marginTop: 10,
-        gap: 6,
+        paddingLeft: 30,
     },
 
+
     nome: {
-        fontSize: 26,
+        fontSize: 23,
         fontWeight: "bold",
         color: "#171717",
     },
+
+
+    iconeCaneta: {
+        width: 18,
+        height: 18,
+        marginLeft: 6,
+    },
+
+
+    /* USUÁRIO */
 
     usuario: {
         textAlign: "center",
@@ -77,25 +97,28 @@ export const perfilusuarioStyles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         width: "100%",
-        marginTop: 35,
-        paddingHorizontal: 15,
+        marginTop: 40,
+        paddingHorizontal: 10,
     },
+
 
     info: {
-        alignItems: "center",
         flex: 1,
+        alignItems: "center",
     },
 
+
     numero: {
-        fontSize: 20,
+        fontSize: 21,
         fontWeight: "bold",
         color: "#171717",
     },
 
+
     textoInfo: {
         fontSize: 17,
         color: "#222222",
-        marginTop: 4,
+        marginTop: 3,
     },
 
 
@@ -105,19 +128,25 @@ export const perfilusuarioStyles = StyleSheet.create({
         textAlign: "center",
         fontSize: 17,
         color: "#222222",
-        marginTop: 20,
+        marginTop: 22,
     },
 
 
-    /* MENU DA GALERIA */
+    /* MENU GALERIA */
 
     menuGaleria: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         paddingHorizontal: 60,
-        marginTop: 50,
-        height: 50,
+        marginTop: 55,
+        height: 45,
+    },
+
+
+    iconeSalvar: {
+        width: 30,
+        height: 30,
     },
 
 
@@ -125,17 +154,44 @@ export const perfilusuarioStyles = StyleSheet.create({
 
     galeria: {
         flexDirection: "row",
+        flexWrap: "wrap",
         width: "100%",
         gap: 5,
         marginTop: 5,
     },
 
+
     fotoGaleria: {
-        width: "32.8%",
-        height: 125,
-        borderRadius: 6,
+    width: "33.33%",
+    height: 130,
+    resizeMode: "cover",
+},
+
+
+    /* RODAPÉ */
+
+    footer: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+
+        height: 58,
+
+        backgroundColor: "#c62f52",
+
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
     },
 
 
-    
+    itemFooter: {
+        flex: 1,
+        height: 58,
+
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
 });
