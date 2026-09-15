@@ -25,7 +25,7 @@ export default function Cadastro() {
 
   return (
     <>
-      <Header tituloHeader="Criar Conta" corText="#fff" corHeader="#588EB2" />
+      <Header corSeta="branca" tituloHeader="Criar Conta" corText="#fff" corHeader="#588EB2" />
       <View style={cadastroStyles.container}>
         <View style={cadastroStyles.inputContainer}>
           <View style={cadastroStyles.inputDuo}>

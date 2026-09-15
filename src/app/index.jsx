@@ -30,7 +30,7 @@ export default function App() {
 
       <TouchableOpacity
         style={styles.criar}
-        onPress={() => router.push('/perfil')}
+        onPress={() => router.push('/cadastro')}
       >
         <Text style={styles.buttonText}>Criar conta</Text>
       </TouchableOpacity>

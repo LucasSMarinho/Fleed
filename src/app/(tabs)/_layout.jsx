@@ -2,12 +2,29 @@ import { Tabs } from "expo-router";
 export default function TabsLayout() {
     return (
 
-        <Tabs>
+        <Tabs
+            screenOptions={{
+                headerShown: false,
+                tabBarActiveTintColor: "#DC97A5",
+                tabBarInactiveTintColor: "#F2E9E6",
+                tabBarStyle: {
+                    height: 70,
+                    borderTopRightRadius: 5,
+                    borderTopLeftRadius: 5,
+                    backgroundColor: "#B83556",
+                },
+                tabBarIconStyle: {
+                    marginBottom: 2,
+                },
+                tabBarLabelStyle: {
+                    fontSize: 10,
+                },
+            }}>
+
             <Tabs.Screen
                 name="login"
                 options={{
                     title: "login",
-                    headerShown: false,
                     href: null,
                     tabBarStyle: {
                         display: "none"
@@ -24,7 +41,6 @@ export default function TabsLayout() {
                 name="feedtela"
                 options={{
                     title: "feed",
-                    headerShown: false,
                 }}
             />
             <Tabs.Screen
@@ -37,7 +53,6 @@ export default function TabsLayout() {
                 name="editarperfil"
                 options={{
                     title: "editar perfil",
-                    headerShown: false,
                     href: null,
                 }}
             />
@@ -51,14 +66,12 @@ export default function TabsLayout() {
                 name="notificacoes"
                 options={{
                     title: "notificacoes",
-                    headerShown: false,
                 }}
             />
             <Tabs.Screen
                 name="novaPublicacao"
                 options={{
                     title: "novaPublicacao",
-                    headerShown: false,
                     href: null,
                     tabBarStyle: {
                         display: "none"
@@ -75,7 +88,6 @@ export default function TabsLayout() {
                 name="perfilusuario"
                 options={{
                     title: "perfilusuario",
-                    headerShown: false,
                 }}
             />
             <Tabs.Screen
@@ -88,7 +100,6 @@ export default function TabsLayout() {
                 name="detalhes"
                 options={{
                     title: "detalhes",
-                    headerShown: false,
                 }}
             />
             <Tabs.Screen
@@ -101,7 +112,6 @@ export default function TabsLayout() {
                 name="cadastro"
                 options={{
                     title: "cadastro",
-                    headerShown: false,
                     href: null,
                     tabBarStyle: {
                         display: "none"
