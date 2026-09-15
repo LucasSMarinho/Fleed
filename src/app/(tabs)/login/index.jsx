@@ -25,7 +25,7 @@ export default function Perfil() {
 
   return (
     <>
-      <Header tituloHeader="Login" corText="#fff" corHeader="#588EB2" />
+      <Header corSeta="branca" tituloHeader="Login" corText="#fff" corHeader="#588EB2" />
       <View style={perfilStyles.container}>
         <View style={perfilStyles.inputContainer}>
           <View style={perfilStyles.inputDuo}>
