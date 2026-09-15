@@ -16,6 +16,7 @@ import ComentarioAzul from "../../../../assets/comentario_azul.svg";
 import CoracaoVazio from "../../../../assets/coracao_vazio.svg";
 import CoracaoPreenchido from "../../../../assets/coracao-preenchido.svg";
 import Salvar from "../../../../assets/salvar.svg";
+import SalvarPreenchido from "../../../../assets/salvar_preenchido.svg";
 import TresPontos from "../../../../assets/tres_pontos.svg";
 import Perfil from "../../../../assets/perfil.svg";
 
@@ -97,6 +98,20 @@ export default function FeedTela() {
         );
     };
 
+    const salvarPublicacao = (id) => {setPublicacoes((lista) =>
+        lista.map((publicacao) => {
+
+            if (publicacao.id === id) {
+                return {
+                    ...publicacao,
+                    salvo: !publicacao.salvo
+                };
+            }
+
+            return publicacao;
+        })
+    )};
+
     // ABRIR PERFIL
     const abrirPerfil = () => {
         router.push("/perfil");
@@ -118,7 +133,7 @@ export default function FeedTela() {
 
                 <TouchableOpacity
                     style={feedtelaStyles.botaoNotificacao}
-                    onPress={abrirNotificacoes}
+                    onPress={() => router.push("/notificacoes/noticacoes")}
                     activeOpacity={0.7}
                 >
                     <Sino
@@ -224,12 +239,21 @@ export default function FeedTela() {
                             <TouchableOpacity
                                 style={feedtelaStyles.botaoSalvar}
                                 activeOpacity={0.7}
+                                onPress={() => salvarPublicacao(publicacao.id)}
                             >
 
-                                <Salvar
-                                    width={23}
-                                    height={23}
-                                />
+                                {publicacao.salvo ? (
+                                    <SalvarPreenchido
+                                        width={23}
+                                        height={23}
+                                    />
+                                ) : (
+                                    <Salvar
+                                        width={23}
+                                        height={23}
+                                    />
+                                )}
+                                
 
                             </TouchableOpacity>
 
