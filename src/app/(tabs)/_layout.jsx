@@ -60,6 +60,9 @@ export default function TabsLayout() {
                     title: "novaPublicacao",
                     headerShown: false,
                     href: null,
+                    tabBarStyle: {
+                        display: "none"
+                    }
                 }}
             />
             <Tabs.Screen
