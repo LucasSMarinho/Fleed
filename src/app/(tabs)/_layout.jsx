@@ -44,6 +44,13 @@ export default function TabsLayout() {
                 name="feedtela"
                 options={{
                     title: "feed",
+                        tabBarIcon: ({ color, size }) => (
+                        <Ionicons
+                            name="clipboard-outline"
+                            size={size}
+                            color={color}
+                        />
+                    )
                 }}
             />
             <Tabs.Screen
@@ -69,6 +76,13 @@ export default function TabsLayout() {
                 name="notificacoes"
                 options={{
                     title: "notificacoes",
+                     tabBarIcon: ({ color, size }) => (
+                        <Ionicons
+                            name="clipboard-outline"
+                            size={size}
+                            color={color}
+                        />
+                    )
                 }}
             />
             <Tabs.Screen
@@ -77,7 +91,14 @@ export default function TabsLayout() {
                     title: "novaPublicacao",
                     tabBarStyle: {
                         display: "none"
-                    }
+                    },
+                     tabBarIcon: ({ color, size }) => (
+                        <Ionicons
+                            name="clipboard-outline"
+                            size={size}
+                            color={color}
+                        />
+                    )
                 }}
             />
             <Tabs.Screen
@@ -90,6 +111,13 @@ export default function TabsLayout() {
                 name="perfilusuario"
                 options={{
                     title: "perfilusuario",
+                     tabBarIcon: ({ color, size }) => (
+                        <Ionicons
+                            name="clipboard-outline"
+                            size={size}
+                            color={color}
+                        />
+                    )
                 }}
             />
             <Tabs.Screen
