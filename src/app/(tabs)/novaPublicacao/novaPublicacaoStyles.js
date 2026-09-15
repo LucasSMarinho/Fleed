@@ -6,42 +6,18 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
 
+    header: {
+        width: "100%",
+        height: 80,
+        paddingTop: 20,
+    },
+
     scroll: {
         width: "100%",
         alignItems: "center",
         paddingHorizontal: 34,
-        paddingTop: 20,
+        paddingTop: 35,
         paddingBottom: 20,
-    },
-
-    header: {
-        width: "100%",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-        marginBottom: 45,
-    },
-
-    botaoVoltar: {
-        position: "absolute",
-        left: 0,
-        padding: 5,
-    },
-
-    backIcon: {
-        width: 28,
-        height: 28,
-        resizeMode: "contain",
-    },
-
-    tituloPagina: {
-        fontSize: 26,
-        color: "#588EB2",
-        textAlign: "center",
-        marginBottom: 18,
-        marginTop: 18,
-        fontFamily: "Oswald_600SemiBold",
     },
 
     tituloCampo: {

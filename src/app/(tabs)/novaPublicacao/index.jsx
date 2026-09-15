@@ -1,13 +1,23 @@
 import { StatusBar } from "expo-status-bar";
-import { View, Text, ScrollView, TouchableOpacity, Image, TextInput } from "react-native";
+import {
+    View,
+    Text,
+    ScrollView,
+    TouchableOpacity,
+    TextInput,
+} from "react-native";
 import { useState } from "react";
 import styles from "./novaPublicacaoStyles";
 import { useRouter } from "expo-router";
-import { Oswald_600SemiBold, Oswald_400Regular, useFonts } from "@expo-google-fonts/oswald";
+import {
+    Oswald_600SemiBold,
+    Oswald_400Regular,
+    useFonts,
+} from "@expo-google-fonts/oswald";
 import ImagemIcon from "../../../../assets/image.svg";
 import LocalizacaoIcon from "../../../../assets/localizacao.svg";
 import Fundo from "../../../../assets/fundo.svg";
-
+import Header from "../../../components/header/Header";
 
 export default function NovaPublicacao() {
     const router = useRouter();
@@ -45,26 +55,18 @@ export default function NovaPublicacao() {
         <View style={styles.container}>
             <StatusBar style="auto" />
 
+            <View style={styles.header}>
+                <Header
+                    corSeta="rosa"
+                    tituloHeader="Nova Publicação"
+                    corText="#588EB2"
+                />
+            </View>
+
             <ScrollView
                 contentContainerStyle={styles.scroll}
                 showsVerticalScrollIndicator={false}
             >
-                <View style={styles.header}>
-                    <TouchableOpacity
-                        style={styles.botaoVoltar}
-                        onPress={() => router.back()}
-                    >
-                        <Image
-                            source={require("../../../../assets/backIcon.png")}
-                            style={styles.backIcon}
-                        />
-                    </TouchableOpacity>
-
-                    <Text style={styles.tituloPagina}>
-                        Nova Publicação
-                    </Text>
-                </View>
-
                 <Text style={styles.tituloCampo}>
                     O que você está pensando?
                 </Text>
