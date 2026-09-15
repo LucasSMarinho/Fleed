@@ -43,12 +43,10 @@ export default function Notificacoes() {
   return (
     <View style={styles.container}>
 
-      {/* TÍTULO */}
       <Text style={styles.title}>
         Notificações
       </Text>
 
-      {/* LISTA DE NOTIFICAÇÕES */}
       <ScrollView
         style={styles.lista}
         contentContainerStyle={styles.listaConteudo}
@@ -70,7 +68,6 @@ export default function Notificacoes() {
                 style={styles.icone}
               />
 
-              {/* TEXTOS */}
               <View style={styles.textos}>
 
                 <Text style={styles.texto}>
@@ -91,10 +88,8 @@ export default function Notificacoes() {
         })}
       </ScrollView>
 
-      {/* BARRA INFERIOR */}
       <View style={styles.navbar}>
 
-        {/* Os ícones da navbar entram aqui depois */}
 
       </View>
 
@@ -163,17 +158,5 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
 
-  navbar: {
-    position: 'absolute',
-    bottom: 0,
-
-    width: '100%',
-    height: 55,
-
-    backgroundColor: '#BF3156',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
 });
