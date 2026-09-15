@@ -7,6 +7,7 @@ import { Oswald_600SemiBold, Oswald_400Regular } from '@expo-google-fonts/oswald
 import { useFonts } from '@expo-google-fonts/oswald';
 import Button from '../../../components/button/Button';
 import LogoGoogle from '../../../../assets/Google.svg'
+import { Link, useRouter } from 'expo-router';
 
 export default function Perfil() {
 
@@ -18,6 +19,8 @@ export default function Perfil() {
   if (!fontsLoaded) {
     return null;
   }
+
+  const router = useRouter();
 
 
   return (
@@ -36,20 +39,24 @@ export default function Perfil() {
           <View style={perfilStyles.inputDuo}>
             <Text style={perfilStyles.inputText}>Esqueceu sua senha?</Text>
 
-            <Button onPress={() => { }} text="Entrar" backgroundColor="#B83556" textColor="#fff" />
+            <Button onPress={() => router.replace("/feedtela")} text="Entrar" backgroundColor="#B83556" textColor="#fff" />
           </View>
 
-          <View style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
+          <View style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
             <View style={perfilStyles.linha} />
-              <Text style={perfilStyles.textOu}> Ou </Text>
+            <Text style={perfilStyles.textOu}> Ou </Text>
             <View style={perfilStyles.linha} />
           </View>
 
-          <TouchableOpacity style={perfilStyles.ButtonGoogle}>
-            <LogoGoogle width={35} height={35} />
-                 <Text style={perfilStyles.ButtonGoogleText}>Entrar com Google</Text>
-          </TouchableOpacity>
-    
+          <View style={{ width: '100%', alignItems: 'center', gap: 5 }}>
+            <TouchableOpacity style={perfilStyles.ButtonGoogle}>
+              <LogoGoogle width={25} height={25} />
+              <Text style={perfilStyles.ButtonGoogleText}>Entrar com Google</Text>
+            </TouchableOpacity>
+
+            <Text style={[perfilStyles.text, {color: "white"}]}>Não tem uma conta <Link href="/cadastro" style={[perfilStyles.text, {color: "#B83556"}]}>Cadastre-se</Link></Text>
+          </View>
+
         </View>
         <StatusBar style="auto" />
       </View>

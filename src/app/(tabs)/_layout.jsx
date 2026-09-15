@@ -9,6 +9,9 @@ export default function TabsLayout() {
                     title: "login",
                     headerShown: false,
                     href: null,
+                    tabBarStyle: {
+                        display: "none"
+                    }
                 }}
             />
             <Tabs.Screen
@@ -87,6 +90,23 @@ export default function TabsLayout() {
             />
             <Tabs.Screen
                 name="detalhes/detalhesStyles"
+                options={{
+                    href: null,
+                }}
+            />
+            <Tabs.Screen
+                name="cadastro"
+                options={{
+                    title: "cadastro",
+                    headerShown: false,
+                    href: null,
+                    tabBarStyle: {
+                        display: "none"
+                    }
+                }}
+            />
+            <Tabs.Screen
+                name="cadastro/cadastroStyles"
                 options={{
                     href: null,
                 }}

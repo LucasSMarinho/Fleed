@@ -5,7 +5,7 @@ const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 50,
+    height: 70,
 
 
     gap: 10,

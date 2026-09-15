@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import Perfil from '.';
 import { Oswald_400Regular } from '@expo-google-fonts/oswald';
 
-const perfilStyles   = StyleSheet.create({
+const cadastroStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#588EB2',
@@ -13,7 +13,7 @@ const perfilStyles   = StyleSheet.create({
   inputContainer: {
     width: '80%',
     alignItems: 'start',
-    gap: 35,
+    gap: 15,
   },
   input: {
     backgroundColor: '#fff',
@@ -78,4 +78,4 @@ const perfilStyles   = StyleSheet.create({
   }
 });
 
-export default perfilStyles;
+export default cadastroStyles;
