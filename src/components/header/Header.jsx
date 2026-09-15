@@ -1,6 +1,6 @@
 import { Text, View, TouchableOpacity } from 'react-native';
-import VoltarBranco from '../../../assets/voltar_branco.svg';
-import VoltarRosa from '../../../assets/voltar_rosa.svg';
+import VoltarBranco from '../../../assets/voltar_branco';
+import VoltarRosa from '../../../assets/voltar_rosa';
 import headerStyles from './headerStyles';
 import { useFonts, Oswald_600SemiBold } from '@expo-google-fonts/oswald';
 import { useRouter } from 'expo-router';
@@ -24,19 +24,16 @@ export default function Header(props) {
             ]}
         >
 
-            {/* Espaço da esquerda */}
             <View style={headerStyles.side}>
                 <TouchableOpacity
                     onPress={() => {
-                        router.back();
+                        router.push(`/${props.rota}`);
                     }}
                     style={headerStyles.button}
                 >
-                    {props.corSeta === "rosa" ? (
-                        <VoltarRosa width={16} height={16} />
-                    ) : (
-                        <VoltarBranco width={16} height={16} />
-                    )}
+                    {props.mostrarSeta === "true" &&
+                        (<VoltarRosa width={16} height={16} />)}
+
                 </TouchableOpacity>
             </View>
 

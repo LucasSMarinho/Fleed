@@ -57,9 +57,10 @@ export default function NovaPublicacao() {
 
             <View style={styles.header}>
                 <Header
-                    corSeta="rosa"
+                    mostrarSeta="true"
                     tituloHeader="Nova Publicação"
                     corText="#588EB2"
+                    rota="feedtela"
                 />
             </View>
 

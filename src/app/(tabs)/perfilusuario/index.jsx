@@ -62,6 +62,7 @@ export default function PerfilUsuario() {
           <Image
             source={require("../../../../assets/fotodeperfil.png")}
             style={perfilusuarioStyles.fotoPerfil}
+          
           />
 
         </View>
@@ -75,7 +76,7 @@ export default function PerfilUsuario() {
             Lucas Moura
           </Text>
 
-          <TouchableOpacity onPress={() => router.replace("/editarperfil")}>
+          <TouchableOpacity onPress={() => router.push("/editarperfil")}>
 
             <CanetaIcon width={18} height={18} style={perfilusuarioStyles.iconeCaneta} />
 

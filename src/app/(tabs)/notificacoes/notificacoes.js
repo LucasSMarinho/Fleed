@@ -64,3 +64,5 @@ export const NotificacoesStyles= StyleSheet.create({
 
 
 });
+
+export default NotificacoesStyles;

@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import Fundo from '../../assets/fundo.svg';
+import Header from '../components/header/Header';
 
 export default function App() {
   const router = useRouter();

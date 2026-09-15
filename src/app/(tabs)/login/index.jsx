@@ -24,7 +24,7 @@ import { Text, View, TouchableOpacity, TextInput } from 'react-native';
 
     return (
       <>
-        <Header corSeta="branca" tituloHeader="Login" corText="#fff" corHeader="#588EB2" />
+        <Header corSeta="rosa" tituloHeader="Login" corText="#fff" corHeader="#588EB2" mostrarSeta="false"/>
         <View style={perfilStyles.container}>
           <View style={perfilStyles.inputContainer}>
             <View style={perfilStyles.inputDuo}>

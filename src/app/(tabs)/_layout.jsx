@@ -10,10 +10,11 @@ export default function TabsLayout() {
                 tabBarActiveTintColor: "#DC97A5",
                 tabBarInactiveTintColor: "#F2E9E6",
                 tabBarStyle: {
-                    height: 70,
+                    height: 60,
                     borderTopRightRadius: 5,
                     borderTopLeftRadius: 5,
                     backgroundColor: "#B83556",
+                    paddingTop: 5
                 },
                 tabBarIconStyle: {
                     marginBottom: 2,
@@ -21,7 +22,11 @@ export default function TabsLayout() {
                 tabBarLabelStyle: {
                     fontSize: 10,
                 },
-                tabBarShowLabel: false
+                tabBarShowLabel: false,
+                tabBarItemStyle:{
+                    paddingVertical: 5,
+                },
+                
             }}
         >
 
@@ -48,7 +53,7 @@ export default function TabsLayout() {
                         tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="home-outline"
-                            size={size}
+                            size={30}
                             color={color}
                         />
                     )
@@ -80,10 +85,16 @@ export default function TabsLayout() {
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="notifications-outline"
-                            size={size}
+                            size={30}
                             color={color}
                         />
                     )
+                }}
+            />
+            <Tabs.Screen
+                name="notificacoes/notificacoes"
+                options={{
+                    href: null,
                 }}
             />
             <Tabs.Screen
@@ -96,7 +107,7 @@ export default function TabsLayout() {
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="add-circle-outline"
-                            size={size}
+                            size={30}
                             color={color}
                         />
                     )
@@ -115,7 +126,7 @@ export default function TabsLayout() {
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="person-circle-outline"
-                            size={size}
+                            size={30}
                             color={color}
                         />
                     )

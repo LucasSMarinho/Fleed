@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     header: {
         width: "100%",
         height: 80,
-        paddingTop: 20,
+        marginVertical: 10
     },
 
     scroll: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 
     tituloCampo: {
         width: "100%",
-        fontSize: 14,
+        fontSize: 17,
         color: "#B83556",
         textAlign: "left",
         marginBottom: 12,

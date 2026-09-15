@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const headerStyles = StyleSheet.create({
 
     container: {
-        height: 70,
+        height: 110,
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -29,7 +29,7 @@ const headerStyles = StyleSheet.create({
 
     text: {
         fontFamily: 'Oswald_600SemiBold',
-        fontSize: 24,
+        fontSize: 35,
     },
 
 });

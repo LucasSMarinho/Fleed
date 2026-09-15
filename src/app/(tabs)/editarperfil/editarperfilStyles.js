@@ -14,12 +14,6 @@ export const editarperfilStySheet = StyleSheet.create({
         marginBottom: 20,
     },
 
-    iconeVoltar: {
-        width: 22,
-        height: 22,
-        marginRight: 30,
-    },
-
     titulo: {
         fontSize: 20,
         fontWeight: "bold",
@@ -32,27 +26,26 @@ export const editarperfilStySheet = StyleSheet.create({
     },
 
     foto: {
-        width: 90,
-        height: 90,
-        borderRadius: 50,
+        width: 140,
+        height: 140,
+        borderRadius: 100,
     },
 
     camera: {
-        width: 15,
-        height: 15,
-        marginTop: -7,
-        marginLeft: +65,
+        marginTop: -25,
+        marginLeft: +95,
     },
 
     textoInicial: {
         color: "#C3345B",
-        fontSize: 13,
+        fontSize: 15,
         marginBottom: 5,
         marginTop: 8,
+        fontFamily: "Oswald_400Regular"
     },
 
     containerUsuario: {
-        height: 40,
+        height: 50,
         backgroundColor: "#F5F3F2",
         borderRadius: 4,
         paddingHorizontal: 12,
@@ -70,7 +63,7 @@ export const editarperfilStySheet = StyleSheet.create({
 
     botao: {
         backgroundColor: "#C3345B",
-        height: 42,
+        height: 50,
         borderRadius: 5,
         alignItems: "center",
         justifyContent: "center",
@@ -83,3 +76,5 @@ export const editarperfilStySheet = StyleSheet.create({
         fontWeight: "bold",
     },
 });
+
+export default editarperfilStySheet;

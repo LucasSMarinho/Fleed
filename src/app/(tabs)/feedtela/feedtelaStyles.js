@@ -29,15 +29,13 @@ export const feedtelaStyles = StyleSheet.create({
 
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
+        marginVertical: 10,
     },
 
     logo: {
-        fontSize: 24,
-
-        fontWeight: "800",
-
+        fontSize: 32,
+        fontWeight: "900",
         color: "#5793B5",
-
         letterSpacing: 0.2,
     },
 
@@ -56,6 +54,7 @@ export const feedtelaStyles = StyleSheet.create({
 
     scroll: {
         flex: 1,
+        
     },
 
     scrollContent: {
@@ -83,6 +82,9 @@ export const feedtelaStyles = StyleSheet.create({
         paddingHorizontal: 12,
         paddingTop: 12,
         paddingBottom: 9,
+
+        boxShadow: "5px 10px 5px rgb(158, 157, 157)",
+        marginBottom: 10
     },
 
 

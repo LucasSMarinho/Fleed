@@ -50,9 +50,9 @@ export const perfilusuarioStyles = StyleSheet.create({
 
 
     fotoPerfil: {
-       width: 90,
-        height: 90,
-        borderRadius: 50,
+       width: 110,
+        height: 110,
+        borderRadius: 100,
     },
 
 
@@ -109,14 +109,14 @@ export const perfilusuarioStyles = StyleSheet.create({
 
 
     numero: {
-        fontSize: 21,
+        fontSize: 18,
         fontWeight: "bold",
         color: "#171717",
     },
 
 
     textoInfo: {
-        fontSize: 17,
+        fontSize: 15,
         color: "#222222",
         marginTop: 3,
     },
@@ -141,6 +141,7 @@ export const perfilusuarioStyles = StyleSheet.create({
         paddingHorizontal: 60,
         marginTop: 55,
         height: 45,
+        paddingBottom: 70,
     },
 
 
@@ -172,3 +173,5 @@ export const perfilusuarioStyles = StyleSheet.create({
 
 
 });
+
+export default perfilusuarioStyles;

@@ -45,7 +45,7 @@ export default function Cadastro() {
           </View>
 
           <View style={{ width: '100%', alignItems: 'center', gap: 5 }}>
-            <Text style={[cadastroStyles.text, { color: "white" }]}>Não tem uma conta <Link href="/login" style={[cadastroStyles.text, { color: "#B83556" }]}>Cadastre-se</Link></Text>
+            <Text style={[cadastroStyles.text, { color: "white" }]}>Já tem uma conta? <Link href="/login" style={[cadastroStyles.text, { color: "#B83556" }]}>Entrar</Link></Text>
           </View>
 
         </View>

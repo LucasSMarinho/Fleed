@@ -8,7 +8,7 @@ const cadastroStyles = StyleSheet.create({
     backgroundColor: '#588EB2',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 60  
+    paddingTop: 80  
   },
   inputContainer: {
     width: '80%',
@@ -24,6 +24,7 @@ const cadastroStyles = StyleSheet.create({
     borderColor: '#D0D0D0',
     borderRadius: 5,
 
+    height: 50,
     padding: 10,
   },
   inputText: {

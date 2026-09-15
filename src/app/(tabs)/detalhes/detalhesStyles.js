@@ -461,3 +461,5 @@ export const detalhesStyles = StyleSheet.create({
     },
 
 });
+
+export default detalhesStyles;

@@ -181,8 +181,8 @@ export default function FeedTela() {
                                 activeOpacity={0.7}
                             >
                                 <TresPontos
-                                    width={22}
-                                    height={22}
+                                    width={14}
+                                    height={14}
                                 />
                             </TouchableOpacity>
 
@@ -204,13 +204,13 @@ export default function FeedTela() {
 
                                 {publicacao.curtido ? (
                                     <CoracaoPreenchido
-                                        width={23}
-                                        height={23}
+                                        width={25}
+                                        height={25}
                                     />
                                 ) : (
                                     <CoracaoVazio
-                                        width={23}
-                                        height={23}
+                                        width={20}
+                                        height={20}
                                     />
                                 )}
 
