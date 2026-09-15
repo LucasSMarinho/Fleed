@@ -34,6 +34,10 @@ export default function NovaPublicacao() {
             localizacao,
         });
 
+        setDescricao("");
+        setImagem("");
+        setLocalizacao("");
+
         router.push("/feedtela");
     };
 
