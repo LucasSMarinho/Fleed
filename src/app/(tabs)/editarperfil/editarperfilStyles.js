@@ -32,8 +32,8 @@ export const editarperfilStySheet = StyleSheet.create({
     },
 
     foto: {
-        width: 85,
-        height: 85,
+        width: 90,
+        height: 90,
         borderRadius: 50,
     },
 
