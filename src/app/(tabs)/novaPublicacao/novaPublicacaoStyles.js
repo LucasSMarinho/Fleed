@@ -1,4 +1,3 @@
-
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -28,7 +27,6 @@ const styles = StyleSheet.create({
         position: "absolute",
         left: 0,
         padding: 5,
-        
     },
 
     backIcon: {
@@ -38,32 +36,34 @@ const styles = StyleSheet.create({
     },
 
     tituloPagina: {
-        fontSize: 20,
-        fontWeight: "700",
+        fontSize: 26,
         color: "#588EB2",
         textAlign: "center",
         marginBottom: 18,
+        marginTop: 18,
+        fontFamily: "Oswald_600SemiBold",
     },
 
     tituloCampo: {
         width: "100%",
         fontSize: 14,
-        fontWeight: "700",
         color: "#B83556",
         textAlign: "left",
         marginBottom: 12,
+        fontFamily: "Oswald_600SemiBold",
     },
 
     campoDescricao: {
         width: "100%",
         height: 154,
-        backgroundColor: "#D5E3ED",
+        backgroundColor: "#F4F3F2",
         borderRadius: 9,
         paddingHorizontal: 9,
         paddingTop: 10,
         paddingBottom: 10,
         color: "#868686",
         textAlignVertical: "top",
+        fontFamily: "Oswald_400Regular",
     },
 
     opcoes: {
@@ -84,8 +84,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#588EB2",
         marginLeft: 5,
-        fontWeight: "600",
-        
+        fontFamily: "Oswald_400Regular",
     },
 
     publicar: {
@@ -99,8 +98,8 @@ const styles = StyleSheet.create({
 
     textoPublicar: {
         fontSize: 26,
-        fontWeight: "700",
         color: "#fff",
+        fontFamily: "Oswald_600SemiBold",
     },
 
     fundo: {
@@ -109,7 +108,6 @@ const styles = StyleSheet.create({
         left: 0,
         width: "100%",
         height: 100,
-       
     },
 });
 

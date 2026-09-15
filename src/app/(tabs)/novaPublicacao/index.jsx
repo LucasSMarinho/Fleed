@@ -10,6 +10,11 @@ import {
 import { useState } from "react";
 import styles from "./novaPublicacaoStyles";
 import { useRouter } from "expo-router";
+import {
+    Oswald_600SemiBold,
+    Oswald_400Regular,
+    useFonts,
+} from "@expo-google-fonts/oswald";
 import ImagemIcon from "../../../../assets/image.svg";
 import LocalizacaoIcon from "../../../../assets/localizacao.svg";
 import Fundo from "../../../../assets/fundo.svg";
@@ -22,6 +27,15 @@ export default function NovaPublicacao() {
     const [imagem, setImagem] = useState("");
     const [localizacao, setLocalizacao] = useState("");
 
+    const [fontsLoaded] = useFonts({
+        Oswald_600SemiBold,
+        Oswald_400Regular,
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     const publicar = () => {
         console.log("Publicação postada!");
 
@@ -30,6 +44,8 @@ export default function NovaPublicacao() {
             imagem,
             localizacao,
         });
+
+        router.push("/feedtela");
     };
 
     return (
@@ -65,6 +81,7 @@ export default function NovaPublicacao() {
                     value={descricao}
                     onChangeText={setDescricao}
                     placeholder="Em nada!!"
+                    placeholderTextColor="#868686"
                     multiline
                     textAlignVertical="top"
                 />
