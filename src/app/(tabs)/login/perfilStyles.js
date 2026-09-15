@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import Perfil from '.';
 import { Oswald_400Regular } from '@expo-google-fonts/oswald';
 
 const perfilStyles   = StyleSheet.create({

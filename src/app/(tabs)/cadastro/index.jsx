@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput } from 'react-native';
 import Header from '../../../components/header/Header';
 import cadastroStyles from './cadastroStyles';
-import { TextInput } from 'react-native-web';
 import { Oswald_600SemiBold, Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { useFonts } from '@expo-google-fonts/oswald';
 import Button from '../../../components/button/Button';
