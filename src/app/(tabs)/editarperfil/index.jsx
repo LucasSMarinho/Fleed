@@ -11,7 +11,7 @@ import { editarperfilStySheet } from "./editarperfilStyles";
 import Header from "../../../components/header/Header";
 
 import Camera from "../../../../assets/camera.svg";
-import Logo from "../../../../assets/logo.jpg";
+import Logo from "../../../../assets/imagemperfil2.png";
 import { useRouter } from "expo-router";
 
 
@@ -26,10 +26,8 @@ export default function EditarPerfil() {
     return (
         <View style={editarperfilStySheet.container}>
 
-
-            <TouchableOpacity onPress={() => { }}>
-                <Header tituloHeader="Editar Perfil" corText="#588EB2" />
-            </TouchableOpacity>
+            <Header corSeta="rosa" tituloHeader="Editar Perfil" corText="#588EB2" />
+            
 
             <View style={editarperfilStySheet.fotoContainer}>
 
