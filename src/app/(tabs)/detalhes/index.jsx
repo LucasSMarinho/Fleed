@@ -154,7 +154,7 @@ export default function Detalhes() {
                     {/* ================================================= */}
 
                     <Image
-                        source={require("../../../../assets/fundo.svg")}
+                        source={require("../../../../assets/imagemperfil2.png")}
                         style={detalhesStyles.imagemPublicacao}
                         resizeMode="cover"
                     />
