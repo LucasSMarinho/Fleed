@@ -121,7 +121,11 @@ export default function NovaPublicacao() {
                 </TouchableOpacity>
             </ScrollView>
 
-            <Fundo style={styles.fundo} />
+            <Fundo
+              width="105%"
+              height={120}
+              style={styles.fundo}
+            />
         </View>
     );
 }
