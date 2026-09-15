@@ -1,8 +1,9 @@
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 
-import voltarRosa from "../../../../assets/voltar_rosa.svg";
+import VoltarIcon from "../../../../assets/voltar_rosa.svg";
 
+import Header from "../../../components/header/Header"
 import GradeIcon from "../../../../assets/grade.svg";
 import SalvarIcon from "../../../../assets/salvar.svg";
 import CanetaIcon from "../../../../assets/caneta.svg"
@@ -31,6 +32,11 @@ export default function PerfilUsuario() {
       imagem: require("../../../../assets/imagemperfil3.png"),
     },
 
+    {
+      id: 4,
+      imagem: require("../../../../assets/imagemperfil3.png"),
+    },
+
   ];
 
 
@@ -44,26 +50,9 @@ export default function PerfilUsuario() {
       >
 
 
-        {/* BOTÃO VOLTAR */}
+        {/* Header */}
 
-        <TouchableOpacity
-          onPress={() => router.back()}
-          style={perfilusuarioStyles.botaoVoltar}
-        >
-
-          <Image
-            source={voltarRosa}
-            style={perfilusuarioStyles.iconeVoltar}
-          />
-
-        </TouchableOpacity>
-
-
-        {/* TÍTULO */}
-
-        <Text style={perfilusuarioStyles.titulo}>
-          Perfil
-        </Text>
+        <Header corSeta="rosa" tituloHeader="Perfil" corText="#588eb2"/>
 
 
         {/* FOTO DO PERFIL */}
@@ -88,10 +77,7 @@ export default function PerfilUsuario() {
 
           <TouchableOpacity onPress={() => router.replace("/editarperfil")}>
 
-            <CanetaIcon
-              width={25}
-              height={25}
-            />
+            <CanetaIcon width={18} height={18} style={perfilusuarioStyles.iconeCaneta} />
 
           </TouchableOpacity>
 

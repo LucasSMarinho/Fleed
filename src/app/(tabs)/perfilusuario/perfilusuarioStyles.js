@@ -152,46 +152,23 @@ export const perfilusuarioStyles = StyleSheet.create({
 
     /* GALERIA */
 
+        /* GALERIA */
+
     galeria: {
         flexDirection: "row",
         flexWrap: "wrap",
         width: "100%",
-        gap: 5,
+        justifyContent: "space-between",
         marginTop: 5,
     },
 
 
     fotoGaleria: {
-    width: "33.33%",
-    height: 130,
-    resizeMode: "cover",
-},
-
-
-    /* RODAPÉ */
-
-    footer: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-
-        height: 58,
-
-        backgroundColor: "#c62f52",
-
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
+        width: "31.5%",
+        height: 130,
+        marginBottom: 6,
+        resizeMode: "cover",
     },
 
-
-    itemFooter: {
-        flex: 1,
-        height: 58,
-
-        alignItems: "center",
-        justifyContent: "center",
-    },
 
 });
