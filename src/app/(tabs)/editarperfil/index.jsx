@@ -12,9 +12,12 @@ import Header from "../../../components/header/Header";
 
 import Camera from "../../../../assets/camera.svg";
 import Logo from "../../../../assets/logo.jpg";
+import { useRouter } from "expo-router";
 
 
 export default function EditarPerfil() {
+
+    const router = useRouter();
 
     const [nome, setNome] = useState("Lucas Moura");
     const [usuario, setUsuario] = useState("Lucas.moura");
@@ -23,17 +26,10 @@ export default function EditarPerfil() {
     return (
         <View style={editarperfilStySheet.container}>
 
-            <View style={editarperfilStySheet.header}>
 
-                <TouchableOpacity onPress={() => { }}>
-                    <Header tituloHeader="Ed" corText="#588EB2" />
-                </TouchableOpacity>
-
-                <Text style={editarperfilStySheet.titulo}>
-                    Editar Perfil
-                </Text>
-
-            </View>
+            <TouchableOpacity onPress={() => { }}>
+                <Header tituloHeader="Editar Perfil" corText="#588EB2" />
+            </TouchableOpacity>
 
             <View style={editarperfilStySheet.fotoContainer}>
 
@@ -80,7 +76,10 @@ export default function EditarPerfil() {
                 multiline
             />
 
-            <TouchableOpacity style={editarperfilStySheet.botao}>
+            <TouchableOpacity
+                style={editarperfilStySheet.botao}
+                onPress={() => router.replace("/perfilusuario")}
+            >
                 <Text style={editarperfilStySheet.textoBotao}>
                     Salvar alterações
                 </Text>
