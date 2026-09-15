@@ -21,6 +21,7 @@ export default function TabsLayout() {
                 tabBarLabelStyle: {
                     fontSize: 10,
                 },
+                tabBarShowLabel: false
             }}
         >
 
@@ -46,7 +47,7 @@ export default function TabsLayout() {
                     title: "feed",
                         tabBarIcon: ({ color, size }) => (
                         <Ionicons
-                            name="clipboard-outline"
+                            name="home-outline"
                             size={size}
                             color={color}
                         />
@@ -78,7 +79,7 @@ export default function TabsLayout() {
                     title: "notificacoes",
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
-                            name="clipboard-outline"
+                            name="notifications-outline"
                             size={size}
                             color={color}
                         />
@@ -94,7 +95,7 @@ export default function TabsLayout() {
                     },
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
-                            name="clipboard-outline"
+                            name="add-circle-outline"
                             size={size}
                             color={color}
                         />
@@ -113,7 +114,7 @@ export default function TabsLayout() {
                     title: "perfilusuario",
                      tabBarIcon: ({ color, size }) => (
                         <Ionicons
-                            name="clipboard-outline"
+                            name="person-circle-outline"
                             size={size}
                             color={color}
                         />

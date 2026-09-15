@@ -1,25 +1,37 @@
 import { StyleSheet } from 'react-native';
 
 const headerStyles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 70,
 
+    container: {
+        height: 70,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
 
-    gap: 10,
-    padding: 20,
-  },
-  text: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
+    side: {
+        width: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 
-    fontFamily: 'Oswald_600SemiBold',
-    fontSize: 24,
-    textAlign: 'center',
-  }
+    button: {
+        width: 50,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    titleContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    text: {
+        fontFamily: 'Oswald_600SemiBold',
+        fontSize: 24,
+    },
+
 });
 
 export default headerStyles;
