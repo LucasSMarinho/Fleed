@@ -13,7 +13,6 @@
 
   export default function Perfil() {
 
-    const [nome, setNome] = useState("")
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const {setUsuario} = useContext(UsuarioContext)
@@ -42,7 +41,7 @@
        if(usuarioEncontrado)
        {
         setUsuario(usuarioEncontrado)
-        router.replace("/feedtela")
+        router.push("/feedtela")
        }
     }
 
@@ -77,7 +76,7 @@
                 <Text style={perfilStyles.ButtonGoogleText}>Entrar com Google</Text>
               </TouchableOpacity>
 
-              <Text style={[perfilStyles.text, {color: "white"}]}>Não tem uma conta <Text onPress={() => router.push("/cadastro")} style={[perfilStyles.text, {color: "#B83556"}]}>Cadastre-se</Text></Text>
+              <Text style={[perfilStyles.text, {color: "white"}]}> Não tem uma conta <Text onPress={() => router.push("/cadastro")} style={[perfilStyles.text, {color: "#B83556"}]}>Cadastre-se</Text></Text>
             </View>
 
           </View>

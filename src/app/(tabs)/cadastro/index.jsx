@@ -7,8 +7,13 @@ import { useFonts } from '@expo-google-fonts/oswald';
 import Button from '../../../components/button/Button';
 import LogoGoogle from '../../../../assets/Google.svg'
 import { Link, useRouter } from 'expo-router';
+import { useContext, useEffect, useState } from 'react';
 
 export default function Cadastro() {
+
+  const [nome, setNome] = useState("")
+  const [email, setEmail] = useState("")
+  const [senha, setSenha] = useState("")
 
   let [fontsLoaded] = useFonts({
     Oswald_600SemiBold,
@@ -21,6 +26,26 @@ export default function Cadastro() {
 
   const router = useRouter();
 
+  const funcLogin = async () => {
+    const retornoApi = await fetch("http://localhost:3000/usuario", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        nome: nome,
+        email: email,
+        senha: senha
+      })
+    })
+
+
+
+    if (usuarioEncontrado) {
+      setUsuario(usuarioEncontrado)
+      router.push("/feedtela")
+    }
+  }
 
   return (
     <>
@@ -29,19 +54,19 @@ export default function Cadastro() {
         <View style={cadastroStyles.inputContainer}>
           <View style={cadastroStyles.inputDuo}>
             <Text style={cadastroStyles.inputText}>Nome Completo:</Text>
-            <TextInput placeholder="Digite seu nome" style={cadastroStyles.input} />
+            <TextInput placeholder="Digite seu nome" style={cadastroStyles.input} onChangeText={setNome}/>
           </View>
           <View style={cadastroStyles.inputDuo}>
             <Text style={cadastroStyles.inputText}>E-mail:</Text>
-            <TextInput placeholder="Digite seu e-mail" style={cadastroStyles.input} />
+            <TextInput placeholder="Digite seu e-mail" style={cadastroStyles.input} onChangeText={setEmail}/>
           </View>
-          <View style={[cadastroStyles.inputDuo, {marginBottom: 50}]}>
+          <View style={[cadastroStyles.inputDuo, { marginBottom: 50 }]}>
             <Text style={cadastroStyles.inputText}>Senha:</Text>
-            <TextInput placeholder="Digite sua senha" style={cadastroStyles.input} />
+            <TextInput placeholder="Digite sua senha" style={cadastroStyles.input} onChangeText={setSenha}/>
           </View>
           <View style={cadastroStyles.inputDuo}>
 
-            <Button onPress={() => router.replace("/feedtela")} text="Criar Conta" backgroundColor="#B83556" textColor="#fff" />
+            <Button onPress={() => router.push("/feedtela")} text="Criar Conta" backgroundColor="#B83556" textColor="#fff" />
           </View>
 
           <View style={{ width: '100%', alignItems: 'center', gap: 5 }}>
