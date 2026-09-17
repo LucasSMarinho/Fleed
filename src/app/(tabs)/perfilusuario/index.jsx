@@ -1,18 +1,63 @@
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+
 import { useRouter } from "expo-router";
 
-import VoltarIcon from "../../../../assets/voltar_rosa.svg";
+import Header from "../../../components/header/Header";
 
-import Header from "../../../components/header/Header"
 import GradeIcon from "../../../../assets/grade.svg";
 import SalvarIcon from "../../../../assets/salvar.svg";
-import CanetaIcon from "../../../../assets/caneta.svg"
+import CanetaIcon from "../../../../assets/caneta.svg";
+
 import { perfilusuarioStyles } from "./perfilusuarioStyles";
+import { UsuarioContext } from "../../../context/UsuarioContext";
 
 
 export default function PerfilUsuario() {
 
   const router = useRouter();
+
+  const [nome, setNome] = useState("");
+  const [bio, setBio] = useState("");
+  const [fotoPerfil, setFotoPerfil] = useState(null);
+  const { usuario } = useContext(UsuarioContext);
+  const [nomeUsuario, setNomeUsuario] = useState("");
+
+  const buscarUsuario = async () => {
+    try {
+      if (!usuario) {
+        console.log("Nenhum usuário logado");
+        return;
+      }
+
+      const resposta = await fetch(
+        `http://192.168.137.1:3000/usuario/${usuario.id}`
+      );
+
+      const dados = await resposta.json();
+
+      setNome(dados.nome);
+      setNomeUsuario(dados.usuario);
+      setBio(dados.bio);
+      setFotoPerfil(dados.FotoPerfil);
+
+      console.log("Dados do usuário:", dados);
+
+    } catch (error) {
+      console.log("Erro ao buscar usuário:", error);
+    }
+  };
+
+  useEffect(() => {
+    buscarUsuario();
+  }, [usuario]);
 
 
   const publicacoes = [
@@ -42,60 +87,59 @@ export default function PerfilUsuario() {
 
   return (
 
-    <View style={perfilusuarioStyles.container}>
+    <View style={perfilusuarioStyles.container} >
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={perfilusuarioStyles.scroll}
       >
 
+        <Header
+          corSeta="rosa"
+          tituloHeader="Perfil"
+          corText="#588eb2"
+        />
 
-        {/* Header */}
-
-        <Header corSeta="rosa" tituloHeader="Perfil" corText="#588eb2"/>
-
-
-        {/* FOTO DO PERFIL */}
 
         <View style={perfilusuarioStyles.areaFoto}>
 
           <Image
-            source={require("../../../../assets/fotodeperfil.png")}
+            source={
+              usuario.FotoPerfil
+                ? { uri: usuario.FotoPerfil }
+                : require("../../../../assets/fotodeperfil.png")
+            }
             style={perfilusuarioStyles.fotoPerfil}
-          
           />
 
         </View>
 
 
-        {/* NOME */}
-
         <View style={perfilusuarioStyles.areaNome}>
 
           <Text style={perfilusuarioStyles.nome}>
-            Lucas Moura
+            {usuario.nome}
           </Text>
 
-          <TouchableOpacity onPress={() => router.push("/editarperfil")}>
+          <TouchableOpacity
+            onPress={() => router.push("/editarperfil")}
+          >
 
-            <CanetaIcon width={18} height={18} style={perfilusuarioStyles.iconeCaneta} />
+            <CanetaIcon
+              width={18}
+              height={18}
+              style={perfilusuarioStyles.iconeCaneta}
+            />
 
           </TouchableOpacity>
 
         </View>
 
-
-        {/* USUÁRIO */}
-
         <Text style={perfilusuarioStyles.usuario}>
-          @lucas.moura
+          {usuario.usuario}
         </Text>
 
-
-        {/* INFORMAÇÕES */}
-
         <View style={perfilusuarioStyles.informacoes}>
-
 
           <View style={perfilusuarioStyles.info}>
 
@@ -135,50 +179,37 @@ export default function PerfilUsuario() {
 
           </View>
 
-
         </View>
 
-
-        {/* BIO */}
-
         <Text style={perfilusuarioStyles.bio}>
-          Jogador do SPFC!
+          {bio}
         </Text>
 
 
-        {/* ÍCONES DA GALERIA */}
-
         <View style={perfilusuarioStyles.menuGaleria}>
 
-
-          <TouchableOpacity >
+          <TouchableOpacity>
 
             <GradeIcon
-              flexDirection="row"
-              // justifyContent= "space-between"
-              // alignItems= "center"
-              // paddingHorizontal={60}
               marginTop={50}
               height={50}
               width={25}
             />
 
           </TouchableOpacity>
+
 
           <TouchableOpacity>
+
             <SalvarIcon
-              // paddingHorizontal={60}
               marginTop={50}
               height={50}
               width={25}
             />
+
           </TouchableOpacity>
 
-
         </View>
-
-
-        {/* PUBLICAÇÕES */}
 
         <View style={perfilusuarioStyles.galeria}>
 
@@ -194,9 +225,7 @@ export default function PerfilUsuario() {
 
         </View>
 
-
       </ScrollView>
-
 
     </View>
 

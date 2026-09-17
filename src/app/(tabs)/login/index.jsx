@@ -29,7 +29,7 @@
     const router = useRouter();
     
     const funcLogin = async() => {
-      const retornoApi = await fetch("http://localhost:3000/usuario")
+      const retornoApi = await fetch("http://192.168.137.1:3000/usuario")
       const dados = await retornoApi.json()
 
        const usuarioEncontrado = dados.find(

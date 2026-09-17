@@ -47,10 +47,23 @@ export default function FeedTela() {
     };
 
     const funcGet = async () => {
+<<<<<<< HEAD
         try {
             const retornoApi = await fetch(
                 "http://192.168.137.1:3000/publicacoes"
             );
+=======
+        const retornoApi = await fetch("http://192.168.137.1:3000/publicacoes")
+        const dados = await retornoApi.json()
+        console.log(dados)
+        setPublicacoes(dados)
+      }
+    
+    
+      useEffect(() => {
+        funcGet()
+      }, [])
+>>>>>>> EditarPerfil
 
             if (!retornoApi.ok) {
                 throw new Error("Erro ao buscar publicações");
