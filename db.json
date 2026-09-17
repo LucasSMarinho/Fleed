@@ -21,31 +21,28 @@
   ],
   "publicacoes": [
     {
-      "id": "1",
-      "nome": "Lucas Moura",
-      "horario": "Hoje 16:30",
-      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-      "curtidas": 32,
-      "comentarios": 4,
-      "curtido": false
+      "texto": "SENAI",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/16371442-618b-471a-9de1-9c20c7788dcf.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "bxpKQNScY4U"
     },
     {
-      "id": "2",
-      "nome": "Lucas Moura",
-      "horario": "Hoje 16:30",
-      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-      "curtidas": 32,
-      "comentarios": 4,
-      "curtido": false
+      "texto": "API fake do nosso site",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/f5bd289a-65bf-469f-8882-fdde26b468e5.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "iAAfeLUiwQk"
     },
     {
-      "id": "3",
-      "nome": "Lucas Moura",
-      "horario": "Hoje 16:30",
-      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-      "curtidas": 32,
-      "comentarios": 4,
-      "curtido": false
+      "texto": "Teste",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/c472ca02-72be-4fff-b4c1-889e14d4149d.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "Mu27laXs3rY"
+    },
+    {
+      "texto": "Teste",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/b82f3cdd-8e43-42bd-a84e-36e1e8894ef0.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "UiIuM1zFV9s"
     }
   ],
   "notificacoes": [

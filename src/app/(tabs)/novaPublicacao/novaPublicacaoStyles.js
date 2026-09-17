@@ -9,10 +9,17 @@ const styles = StyleSheet.create({
     header: {
         width: "100%",
         height: 80,
-        marginVertical: 10
+        marginVertical: 10,
+        zIndex: 2,
+    },
+
+    scrollView: {
+        flex: 1,
+        width: "100%",
     },
 
     scroll: {
+        flexGrow: 1,
         width: "100%",
         alignItems: "center",
         paddingHorizontal: 34,
@@ -48,12 +55,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 25,
         marginBottom: 30,
+        zIndex: 3,
     },
 
     opcao: {
         flexDirection: "row",
         alignItems: "center",
         marginRight: 25,
+        zIndex: 4,
     },
 
     textoOpcao: {
@@ -70,6 +79,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         alignItems: "center",
         justifyContent: "center",
+        zIndex: 3,
     },
 
     textoPublicar: {
@@ -84,6 +94,7 @@ const styles = StyleSheet.create({
         left: 0,
         width: "100%",
         height: 100,
+        zIndex: 0,
     },
 });
 

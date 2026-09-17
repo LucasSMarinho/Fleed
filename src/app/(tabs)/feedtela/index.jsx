@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 import {
     View,
@@ -10,7 +10,6 @@ import {
 
 import { useRouter } from "expo-router";
 
-// SVGs do seu assets
 import Sino from "../../../../assets/sino.svg";
 import ComentarioAzul from "../../../../assets/comentario_azul.svg";
 import CoracaoVazio from "../../../../assets/coracao_vazio.svg";
@@ -20,33 +19,25 @@ import SalvarPreenchido from "../../../../assets/salvar_preenchido.svg";
 import TresPontos from "../../../../assets/tres_pontos.svg";
 import Perfil from "../../../../assets/perfil.svg";
 
-// Styles
 import { feedtelaStyles } from "./feedtelaStyles";
 
 export default function FeedTela() {
-
     const router = useRouter();
 
     const [publicacoes, setPublicacoes] = useState([]);
 
-    // CURTIR PUBLICAÇÃO
     const curtirPublicacao = (id) => {
-
         setPublicacoes((lista) =>
             lista.map((publicacao) => {
-
                 if (publicacao.id === id) {
-
                     const novoEstadoCurtido = !publicacao.curtido;
 
                     return {
                         ...publicacao,
-
                         curtido: novoEstadoCurtido,
-
                         curtidas: novoEstadoCurtido
-                            ? publicacao.curtidas + 1
-                            : publicacao.curtidas - 1,
+                            ? (publicacao.curtidas || 0) + 1
+                            : Math.max((publicacao.curtidas || 0) - 1, 0),
                     };
                 }
 
@@ -56,53 +47,68 @@ export default function FeedTela() {
     };
 
     const funcGet = async () => {
-        const retornoApi = await fetch("http://localhost:3000/publicacoes")
-        const dados = await retornoApi.json()
-        console.log(dados)
-        setPublicacoes(dados)
-      }
-    
-    
-      useEffect(() => {
-        funcGet()
-      }, [])
+        try {
+            const retornoApi = await fetch(
+                "http://192.168.137.1:3000/publicacoes"
+            );
 
-    const salvarPublicacao = (id) => {setPublicacoes((lista) =>
-        lista.map((publicacao) => {
-
-            if (publicacao.id === id) {
-                return {
-                    ...publicacao,
-                    salvo: !publicacao.salvo
-                };
+            if (!retornoApi.ok) {
+                throw new Error("Erro ao buscar publicações");
             }
 
-            return publicacao;
-        })
-    )};
+            const dados = await retornoApi.json();
 
-    // ABRIR PERFIL
+            console.log("PUBLICAÇÕES:", dados);
+
+            setPublicacoes(dados);
+        } catch (error) {
+            console.error("ERRO AO BUSCAR PUBLICAÇÕES:", error);
+        }
+    };
+
+    useEffect(() => {
+        funcGet();
+
+        const intervalo = setInterval(() => {
+            funcGet();
+        }, 1000);
+
+        return () => clearInterval(intervalo);
+    }, []);
+
+    const salvarPublicacao = (id) => {
+        setPublicacoes((lista) =>
+            lista.map((publicacao) => {
+                if (publicacao.id === id) {
+                    return {
+                        ...publicacao,
+                        salvo: !publicacao.salvo,
+                    };
+                }
+
+                return publicacao;
+            })
+        );
+    };
+
     const abrirPerfil = () => {
         router.push("/perfil");
     };
 
-    // ABRIR NOTIFICAÇÕES
     const abrirNotificacoes = () => {
         router.push("/notificacoes");
     };
 
     return (
         <View style={feedtelaStyles.container}>
-
             <View style={feedtelaStyles.header}>
-
                 <Text style={feedtelaStyles.logo}>
                     FLEED
                 </Text>
 
                 <TouchableOpacity
                     style={feedtelaStyles.botaoNotificacao}
-                    onPress={() => router.push("/notificacoes")}
+                    onPress={abrirNotificacoes}
                     activeOpacity={0.7}
                 >
                     <Sino
@@ -110,39 +116,33 @@ export default function FeedTela() {
                         height={28}
                     />
                 </TouchableOpacity>
-
             </View>
 
             <ScrollView
                 style={feedtelaStyles.scroll}
                 contentContainerStyle={feedtelaStyles.scrollContent}
                 showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps="handled"
             >
-
                 {publicacoes.map((publicacao) => (
-
                     <View
                         key={publicacao.id}
                         style={feedtelaStyles.cardPublicacao}
                     >
-
                         <View style={feedtelaStyles.usuario}>
-
                             <Image
                                 source={require("../../../../assets/logo.jpg")}
                                 style={feedtelaStyles.fotoPerfil}
                             />
 
                             <View style={feedtelaStyles.infoUsuario}>
-
                                 <Text style={feedtelaStyles.nomeUsuario}>
-                                    {publicacao.nome}
+                                    {publicacao.nome || "Usuário"}
                                 </Text>
 
                                 <Text style={feedtelaStyles.horario}>
-                                    {publicacao.horario}
+                                    {publicacao.horario || ""}
                                 </Text>
-
                             </View>
 
                             <TouchableOpacity
@@ -154,15 +154,33 @@ export default function FeedTela() {
                                     height={14}
                                 />
                             </TouchableOpacity>
-
                         </View>
 
                         <Text style={feedtelaStyles.textoPublicacao}>
                             {publicacao.texto}
                         </Text>
 
-                        <View style={feedtelaStyles.acoes}>
+                        {publicacao.imagem && (
+                            <Image
+                                source={{
+                                    uri: publicacao.imagem,
+                                }}
+                                style={feedtelaStyles.imagemPublicacao}
+                                resizeMode="cover"
+                            />
+                        )}
 
+                        {publicacao.localizacao && (
+                            <Text
+                                style={
+                                    feedtelaStyles.localizacaoPublicacao
+                                }
+                            >
+                                📍 {publicacao.localizacao}
+                            </Text>
+                        )}
+
+                        <View style={feedtelaStyles.acoes}>
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
                                 onPress={() =>
@@ -170,7 +188,6 @@ export default function FeedTela() {
                                 }
                                 activeOpacity={0.7}
                             >
-
                                 {publicacao.curtido ? (
                                     <CoracaoPreenchido
                                         width={25}
@@ -184,14 +201,15 @@ export default function FeedTela() {
                                 )}
 
                                 <Text style={feedtelaStyles.numeroAcao}>
-                                    {publicacao.curtidas}
+                                    {publicacao.curtidas || 0}
                                 </Text>
-
                             </TouchableOpacity>
 
                             <TouchableOpacity
                                 style={feedtelaStyles.acao}
-                                onPress={() => router.push("/detalhes")}
+                                onPress={() =>
+                                    router.push("/detalhes")
+                                }
                                 activeOpacity={0.7}
                             >
                                 <ComentarioAzul
@@ -200,17 +218,17 @@ export default function FeedTela() {
                                 />
 
                                 <Text style={feedtelaStyles.numeroAcao}>
-                                    {publicacao.comentarios}
+                                    {publicacao.comentarios || 0}
                                 </Text>
-
                             </TouchableOpacity>
 
                             <TouchableOpacity
                                 style={feedtelaStyles.botaoSalvar}
                                 activeOpacity={0.7}
-                                onPress={() => salvarPublicacao(publicacao.id)}
+                                onPress={() =>
+                                    salvarPublicacao(publicacao.id)
+                                }
                             >
-
                                 {publicacao.salvo ? (
                                     <SalvarPreenchido
                                         width={23}
@@ -222,30 +240,25 @@ export default function FeedTela() {
                                         height={23}
                                     />
                                 )}
-                                
-
                             </TouchableOpacity>
-
                         </View>
-
                     </View>
-
                 ))}
 
                 <View style={feedtelaStyles.espacoFinal} />
-
             </ScrollView>
 
             <TouchableOpacity
                 style={feedtelaStyles.botaoAdicionar}
-                onPress={() => router.push("/novaPublicacao")}
+                onPress={() =>
+                    router.push("/novaPublicacao")
+                }
                 activeOpacity={0.8}
             >
                 <Text style={feedtelaStyles.textoMais}>
                     +
                 </Text>
             </TouchableOpacity>
-
         </View>
     );
 }

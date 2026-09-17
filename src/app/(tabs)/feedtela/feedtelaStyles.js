@@ -1,373 +1,162 @@
 import { StyleSheet } from "react-native";
 
 export const feedtelaStyles = StyleSheet.create({
-
-    // =====================================================
-    // CONTAINER
-    // =====================================================
-
     container: {
         flex: 1,
         backgroundColor: "#FFFFFF",
     },
 
-
-    // =====================================================
-    // HEADER
-    // =====================================================
-
     header: {
-        height: 64,
-
-        backgroundColor: "#FFFFFF",
-
+        width: "100%",
+        height: 80,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-
-        paddingHorizontal: 22,
-
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
-        marginVertical: 10,
+        paddingHorizontal: 25,
     },
 
     logo: {
-        fontSize: 32,
-        fontWeight: "900",
-        color: "#5793B5",
-        letterSpacing: 0.2,
+        fontSize: 28,
+        fontWeight: "bold",
+        color: "#588EB2",
     },
 
     botaoNotificacao: {
-        width: 36,
-        height: 36,
-
-        alignItems: "center",
-        justifyContent: "center",
+        padding: 5,
     },
-
-
-    // =====================================================
-    // SCROLL
-    // =====================================================
 
     scroll: {
         flex: 1,
-        
+        width: "100%",
     },
 
     scrollContent: {
-        paddingTop: 0,
-        paddingBottom: 15,
+        width: "100%",
+        alignItems: "center",
+        paddingBottom: 120,
     },
-
-    espacoFinal: {
-        height: 90,
-    },
-
-
-    // =====================================================
-    // CARD
-    // =====================================================
 
     cardPublicacao: {
-        backgroundColor: "#F4F3F2",
-
-        marginHorizontal: 20,
-        marginTop: 16,
-
-        borderRadius: 5,
-
-        paddingHorizontal: 12,
-        paddingTop: 12,
-        paddingBottom: 9,
-
-        boxShadow: "5px 10px 5px rgb(158, 157, 157)",
-        marginBottom: 10
-    },
-
-
-    // =====================================================
-    // INFORMAÇÕES DO USUÁRIO
-    // =====================================================
-
-    usuario: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-
-    fotoPerfil: {
-        width: 40,
-        height: 40,
-
-        borderRadius: 20,
-
-        backgroundColor: "#D5D5D5",
-    },
-
-    infoUsuario: {
-        flex: 1,
-
-        marginLeft: 10,
-    },
-
-    nomeUsuario: {
-        fontSize: 14,
-
-        fontWeight: "700",
-
-        color: "#111111",
-    },
-
-    horario: {
-        fontSize: 10,
-
-        color: "#7D7D7D",
-
-        marginTop: 1,
-    },
-
-    botaoTresPontos: {
-        width: 30,
-        height: 35,
-
-        alignItems: "flex-end",
-        justifyContent: "flex-start",
-
-        paddingTop: 0,
-    },
-
-
-    // =====================================================
-    // TEXTO DA PUBLICAÇÃO
-    // =====================================================
-
-    textoPublicacao: {
-        fontSize: 13,
-
-        color: "#000000",
-
-        lineHeight: 20,
-
-        marginTop: 9,
-        marginBottom: 7,
-    },
-
-
-    // =====================================================
-    // AÇÕES
-    // =====================================================
-
-    acoes: {
-        flexDirection: "row",
-
-        alignItems: "center",
-
-        height: 32,
-    },
-
-    acao: {
-        flexDirection: "row",
-
-        alignItems: "center",
-
-        marginRight: 18,
-    },
-
-    numeroAcao: {
-        fontSize: 13,
-
-        color: "#222222",
-
-        marginLeft: 6,
-    },
-
-    botaoSalvar: {
-        marginLeft: "auto",
-
-        width: 30,
-        height: 30,
-
-        alignItems: "flex-end",
-        justifyContent: "center",
-    },
-
-
-    // =====================================================
-    // BOTÃO +
-    // =====================================================
-
-    botaoAdicionar: {
-        position: "absolute",
-
-        right: 10,
-        bottom: 57,
-
-        width: 48,
-        height: 48,
-
-        borderRadius: 24,
-
-        backgroundColor: "#E294A9",
-
-        alignItems: "center",
-        justifyContent: "center",
-
-        elevation: 5,
-
-        shadowColor: "#000000",
+        width: "100%",
+        backgroundColor: "#FFFFFF",
+        borderRadius: 12,
+        padding: 15,
+        marginBottom: 20,
+        elevation: 3,
         shadowOffset: {
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.18,
+        shadowOpacity: 0.15,
+        shadowRadius: 4,
+    },
+
+    usuario: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 12,
+    },
+
+    fotoPerfil: {
+        width: 45,
+        height: 45,
+        borderRadius: 50,
+    },
+
+    infoUsuario: {
+        flex: 1,
+        marginLeft: 10,
+    },
+
+    nomeUsuario: {
+        fontSize: 16,
+        fontWeight: "bold",
+        color: "#333333",
+    },
+
+    horario: {
+        fontSize: 12,
+        color: "#868686",
+        marginTop: 2,
+    },
+
+    botaoTresPontos: {
+        padding: 5,
+    },
+
+    textoPublicacao: {
+        width: "100%",
+        fontSize: 16,
+        color: "#333333",
+        marginBottom: 5,
+    },
+
+    imagemPublicacao: {
+        width: "100%",
+        height: 250,
+        borderRadius: 10,
+        marginTop: 10,
+    },
+
+    localizacaoPublicacao: {
+        width: "100%",
+        fontSize: 14,
+        color: "#588EB2",
+        marginTop: 10,
+    },
+
+    acoes: {
+        width: "100%",
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 15,
+    },
+
+    acao: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginRight: 20,
+    },
+
+    numeroAcao: {
+        fontSize: 14,
+        color: "#588EB2",
+        marginLeft: 5,
+    },
+
+    botaoSalvar: {
+        marginLeft: "auto",
+        padding: 5,
+    },
+
+    botaoAdicionar: {
+        position: "absolute",
+        right: 25,
+        bottom: 25,
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: "#C3375B",
+        alignItems: "center",
+        justifyContent: "center",
+        elevation: 5,
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.25,
         shadowRadius: 4,
     },
 
     textoMais: {
+        fontSize: 36,
         color: "#FFFFFF",
-
-        fontSize: 38,
-
         fontWeight: "300",
-
-        lineHeight: 42,
-
-        marginTop: -3,
+        lineHeight: 40,
     },
 
-
-    // =====================================================
-    // FOOTER
-    // =====================================================
-
-    footer: {
-        height: 42,
-
-        backgroundColor: "#C32F59",
-
-        flexDirection: "row",
-
-        alignItems: "center",
-        justifyContent: "space-around",
-
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
+    espacoFinal: {
+        height: 30,
     },
-
-    itemFooter: {
-        flex: 1,
-
-        height: 42,
-
-        alignItems: "center",
-        justifyContent: "center",
-    },
-
-
-    // =====================================================
-    // ÍCONE HOME
-    // =====================================================
-
-    iconeHome: {
-        width: 25,
-        height: 27,
-
-        alignItems: "center",
-
-        justifyContent: "flex-end",
-    },
-
-    casaTelhado: {
-        position: "absolute",
-
-        top: 2,
-
-        width: 15,
-        height: 15,
-
-        borderLeftWidth: 2,
-        borderTopWidth: 2,
-
-        borderColor: "#FFFFFF",
-
-        transform: [
-            {
-                rotate: "45deg",
-            },
-        ],
-    },
-
-    casaCorpo: {
-        position: "absolute",
-
-        bottom: 3,
-
-        width: 18,
-        height: 15,
-
-        borderWidth: 2,
-
-        borderColor: "#FFFFFF",
-    },
-
-    casaPorta: {
-        position: "absolute",
-
-        bottom: 0,
-        left: 6,
-
-        width: 4,
-        height: 7,
-
-        backgroundColor: "#C32F59",
-
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
-        borderTopWidth: 1,
-
-        borderColor: "#FFFFFF",
-    },
-
-
-    // =====================================================
-    // ÍCONE CRIAR
-    // =====================================================
-
-    iconeCriar: {
-        width: 20,
-        height: 20,
-
-        borderWidth: 2,
-
-        borderColor: "#FFFFFF",
-
-        borderRadius: 3,
-
-        alignItems: "center",
-        justifyContent: "center",
-    },
-
-    iconeCriarTexto: {
-        color: "#FFFFFF",
-
-        fontSize: 17,
-
-        fontWeight: "600",
-
-        lineHeight: 18,
-
-        marginTop: -1,
-    },
-
 });
-
-
-// =========================================================
-// IMPORTANTE PARA O EXPO ROUTER
-// =========================================================
-
-export default function FeedtelaStyles() {
-    return null;
-}
