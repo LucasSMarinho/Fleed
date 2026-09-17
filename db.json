@@ -2,6 +2,7 @@
   "usuario": [
     {
       "id": "1",
+<<<<<<< HEAD
       "nome": "Laura",
       "email": "Laura@gmail.com",
       "senha": "1234",
@@ -17,10 +18,51 @@
       "usuario": "@laura",
       "bio": "Criar bios",
       "FotoPerfil": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+=======
+      "nome": "Matheus456",
+      "email": "Laura@gmail.com",
+      "senha": "1234",
+      "usuario": "@Matheu",
+      "bio": "Tá bom",
+      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-35ea7fca-ce7c-4a16-a6bd-6556a84a2f74/ImagePicker/36f001b7-82d3-4140-8b51-2f28b5bd4c20.jpeg"
+    },
+    {
+      "id": "2",
+      "nome": "Laurajn ",
+      "email": "Lorenzo@gmail.com",
+      "senha": "1234",
+      "usuario": "@lavshsvdgd",
+      "bio": "Criar sgshrbdy",
+      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-35ea7fca-ce7c-4a16-a6bd-6556a84a2f74/ImagePicker/7aeb3792-6094-4c6a-bbfb-5b99768ce108.jpeg"
+>>>>>>> EditarPerfil
     }
   ],
   "publicacoes": [
     {
+<<<<<<< HEAD
+      "texto": "SENAI",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/16371442-618b-471a-9de1-9c20c7788dcf.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "bxpKQNScY4U"
+    },
+    {
+      "texto": "API fake do nosso site",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/f5bd289a-65bf-469f-8882-fdde26b468e5.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "iAAfeLUiwQk"
+    },
+    {
+      "texto": "Teste",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/c472ca02-72be-4fff-b4c1-889e14d4149d.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "Mu27laXs3rY"
+    },
+    {
+      "texto": "Teste",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/b82f3cdd-8e43-42bd-a84e-36e1e8894ef0.jpeg",
+      "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
+      "id": "UiIuM1zFV9s"
+=======
       "id": "1",
       "nome": "Lucas Moura",
       "horario": "Hoje 16:30",
@@ -46,6 +88,16 @@
       "curtidas": 32,
       "comentarios": 4,
       "curtido": false
+    },
+    {
+      "id": "4",
+      "nome": "Lucas Moura",
+      "horario": "Hoje 16:30",
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+      "curtidas": 32,
+      "comentarios": 4,
+      "curtido": false
+>>>>>>> EditarPerfil
     }
   ],
   "notificacoes": [
