@@ -5,10 +5,11 @@ import CoracaoP from '../../../../assets/coracao-preenchido.svg';
 import Comentario from '../../../../assets/comentario.svg';
 import Perfil from '../../../../assets/perfil.svg';
 import Header from '../../../components/header/Header'
-import {NotificacoesStyles} from './notificacoes'
+import { NotificacoesStyles } from './notificacoes'
+import { useEffect, useState } from 'react';
 
 export default function Notificacoes() {
-  const notificacoes = [
+  const [notificacoes, setNotificacoes] = useState([
     {
       nome: 'Calleri',
       texto: 'curtiu sua publicação',
@@ -39,23 +40,46 @@ export default function Notificacoes() {
       texto: 'comentou na sua publicação',
       icone: Comentario,
     },
-   
-  ];
+
+  ]);
+
+  const funcGet = async () => {
+    const retornoApi = await fetch("http://localhost:3000/notificacoes")
+    const dados = await retornoApi.json()
+    console.log(dados)
+    setNotificacoes(dados)
+  }
+
+
+  useEffect(() => {
+    funcGet()
+  }, [])
 
   return (
     <View style={NotificacoesStyles.container}>
-      <View style={{width: "100%"}}>
-      <Header corSeta="rosa" tituloHeader="Notificações" corText="#588EB2"/>
-      </View>
-
-
       <ScrollView
         style={NotificacoesStyles.lista}
         contentContainerStyle={NotificacoesStyles.listaConteudo}
         showsVerticalScrollIndicator={false}
       >
+
+
+        <Header corSeta="rosa" tituloHeader="Notificações" corText="#588EB2" />
+
+
         {notificacoes.map((notificacao, index) => {
-          const Icone = notificacao.icone;
+
+                    // Pega o componente SVG pelo nome vindo do JSON
+
+                    let Icone = CoracaoP
+                    if(notificacao.icone == "Comentario")
+                    {Icone = Comentario;}
+                    else if(notificacao.icone == "CoracaoP")
+                    {Icone = CoracaoP;}
+                    else
+                    {Icone = Perfil}
+
+
 
           return (
             <View
@@ -89,13 +113,8 @@ export default function Notificacoes() {
           );
         })}
       </ScrollView>
-
-      <View style={NotificacoesStyles.navbar}>
-
-
-      </View>
-
     </View>
+
   );
 }
 

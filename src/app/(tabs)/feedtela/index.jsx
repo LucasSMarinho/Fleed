@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 
 import {
     View,
@@ -97,6 +97,18 @@ export default function FeedTela() {
             })
         );
     };
+
+    const funcGet = async () => {
+        const retornoApi = await fetch("http://localhost:3000/publicacoes")
+        const dados = await retornoApi.json()
+        console.log(dados)
+        setPublicacoes(dados)
+      }
+    
+    
+      useEffect(() => {
+        funcGet()
+      }, [])
 
     const salvarPublicacao = (id) => {setPublicacoes((lista) =>
         lista.map((publicacao) => {

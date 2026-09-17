@@ -10,20 +10,15 @@ export const NotificacoesStyles= StyleSheet.create({
   },
 
   title: {
-    marginTop: 25,
     fontSize: 26,
     fontWeight: 'bold',
     color: '#6D95AA',
   },
 
   lista: {
-    width: '90%',
+    width: '100%',
     flex: 1,
-    marginTop: 50,
-  },
-
-  listaConteudo: {
-    paddingBottom: 80,
+    paddingHorizontal: '5%'
   },
 
   notificacao: {
