@@ -24,7 +24,16 @@
             "curtido": false
         },
         {
-            "id": 1,
+            "id": 2,
+            "nome": "Lucas Moura",
+            "horario": "Hoje 16:30",
+            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+            "curtidas": 32,
+            "comentarios": 4,
+            "curtido": false
+        },
+        {
+            "id": 3,
             "nome": "Lucas Moura",
             "horario": "Hoje 16:30",
             "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",

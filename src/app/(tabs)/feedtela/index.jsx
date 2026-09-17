@@ -27,50 +27,7 @@ export default function FeedTela() {
 
     const router = useRouter();
 
-    const [publicacoes, setPublicacoes] = useState([
-        {
-            id: 1,
-            nome: "Lucas Moura",
-            horario: "Hoje 16:30",
-            texto:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            curtidas: 32,
-            comentarios: 4,
-            curtido: false,
-        },
-        {
-            id: 2,
-            nome: "Lucas Moura",
-            horario: "Hoje 16:31",
-            texto:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            curtidas: 28,
-            comentarios: 2,
-            curtido: false,
-        },
-
-        {
-            id: 3,
-            nome: "Lucas Moura",
-            horario: "Hoje 16:31",
-            texto:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            curtidas: 28,
-            comentarios: 2,
-            curtido: false,
-        },
-
-        {
-            id: 4,
-            nome: "Lucas Moura",
-            horario: "Hoje 16:31",
-            texto:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            curtidas: 28,
-            comentarios: 2,
-            curtido: false,
-        },
-    ]);
+    const [publicacoes, setPublicacoes] = useState([]);
 
     // CURTIR PUBLICAÇÃO
     const curtirPublicacao = (id) => {

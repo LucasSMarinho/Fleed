@@ -35,20 +35,40 @@ export default function NovaPublicacao() {
         return null;
     }
 
-    const publicar = () => {
-        console.log("Publicação postada!");
+    const publicar = async () => {
+        if (!descricao.trim()) {
+            return;
+        }
 
-        console.log({
-            descricao,
-            imagem,
-            localizacao,
-        });
+        try {
+            const novaPublicacao = {
+                texto: descricao,
+                imagem: imagem,
+                localizacao: localizacao
+            };
 
-        setDescricao("");
-        setImagem("");
-        setLocalizacao("");
+            const response = await fetch(
+                "http://localhost:3000/publicacoes",
+                {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(novaPublicacao)
+                }
+            );
 
-        router.push("/feedtela");
+            if (!response.ok) {
+                throw new Error("Erro ao publicar");
+            }
+
+            setDescricao("");
+            setImagem("");
+            setLocalizacao("");
+
+            router.push("/feedtela");
+
+        } catch (error) {
+            console.error("Erro ao publicar:", error);
+        }
     };
 
     return (
@@ -116,16 +136,16 @@ export default function NovaPublicacao() {
                     style={styles.publicar}
                     onPress={publicar}
                 >
-                    <Text style={styles.textoPublicar} onPress={funcPost()}>
+                    <Text style={styles.textoPublicar}>
                         Publicar
                     </Text>
                 </TouchableOpacity>
             </ScrollView>
 
             <Fundo
-              width="105%"
-              height={120}
-              style={styles.fundo}
+                width="105%"
+                height={120}
+                style={styles.fundo}
             />
         </View>
     );
