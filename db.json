@@ -1,65 +1,66 @@
 {
-    "usuario": [
-        {
-            "id": 1,
-            "nome": "Laura",
-            "email": "Laura@gmail.com",
-            "senha": "1234",
-            "usuario": "@laura",
-            "bio": "Criar bios",
-            "FotoPerfil": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
-        },
-        {
-            "id": 2,
-            "nome": "Lorenzo",
-            "email": "Lorenzo@gmail.com",
-            "senha": "1234",
-            "usuario": "@laura",
-            "bio": "Criar bios",
-            "FotoPerfil": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
-        }
-    ],
-    "publicacoes": [
-        {
-            "id": 1,
-            "nome": "Lucas Moura",
-            "horario": "Hoje 16:30",
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            "curtidas": 32,
-            "comentarios": 4,
-            "curtido": false
-        },
-        {
-            "id": 2,
-            "nome": "Lucas Moura",
-            "horario": "Hoje 16:30",
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            "curtidas": 32,
-            "comentarios": 4,
-            "curtido": false
-        },
-        {
-            "id": 3,
-            "nome": "Lucas Moura",
-            "horario": "Hoje 16:30",
-            "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
-            "curtidas": 32,
-            "comentarios": 4,
-            "curtido": false
-        }
-    ],
-    "notificacoes": [
-        {
-            "id": 1,
-            "nome": "Calleri",
-            "texto": "curtiu sua publicação",
-            "icone": "CoracaoP"
-        },
-         {
-            "id": 2,
-            "nome": "Laura",
-            "texto": "curtiu sua publicação",
-            "icone": "CoracaoP"
-        }
-    ]
+  "usuario": [
+    {
+      "id": "1",
+      "nome": "Laura",
+      "email": "Laura@gmail.com",
+      "senha": "1234",
+      "usuario": "@laura",
+      "bio": "Criar bios",
+      "FotoPerfil": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+    },
+    {
+      "id": "2",
+      "nome": "Lorenzo",
+      "email": "Lorenzo@gmail.com",
+      "senha": "1234",
+      "usuario": "@laura",
+      "bio": "Criar bios",
+      "FotoPerfil": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/250px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+    }
+  ],
+  "publicacoes": [
+    {
+      "id": "1",
+      "nome": "Lucas Moura",
+      "horario": "Hoje 16:30",
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+      "curtidas": 32,
+      "comentarios": 4,
+      "curtido": false
+    },
+    {
+      "id": "2",
+      "nome": "Lucas Moura",
+      "horario": "Hoje 16:30",
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+      "curtidas": 32,
+      "comentarios": 4,
+      "curtido": false
+    },
+    {
+      "id": "3",
+      "nome": "Lucas Moura",
+      "horario": "Hoje 16:30",
+      "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolore magna aliqua.",
+      "curtidas": 32,
+      "comentarios": 4,
+      "curtido": false
+    }
+  ],
+  "notificacoes": [
+    {
+      "id": "1",
+      "nome": "Calleri",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP"
+    },
+    {
+      "id": "2",
+      "nome": "Laura",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

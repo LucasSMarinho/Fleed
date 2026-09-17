@@ -15,7 +15,7 @@ export default function Button(props) {
 
     return (
         <>
-                <TouchableOpacity onPress={props.onPress} style={[buttonStyles.button, {backgroundColor: props.backgroundColor}]}>
+                <TouchableOpacity onPress={() => props.onPressButton()} style={[buttonStyles.button, {backgroundColor: props.backgroundColor}]}>
                  <Text style={{color: props.textColor, fontFamily: 'Oswald_600SemiBold', fontSize: 16}}>{props.text}</Text>
                 </TouchableOpacity>
         </>

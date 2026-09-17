@@ -8,12 +8,14 @@ import Button from '../../../components/button/Button';
 import LogoGoogle from '../../../../assets/Google.svg'
 import { Link, useRouter } from 'expo-router';
 import { useContext, useEffect, useState } from 'react';
+import { UsuarioContext } from '../../../context/UsuarioContext';
 
 export default function Cadastro() {
 
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [senha, setSenha] = useState("")
+  const {setUsuario} = useContext(UsuarioContext)
 
   let [fontsLoaded] = useFonts({
     Oswald_600SemiBold,
@@ -27,25 +29,35 @@ export default function Cadastro() {
   const router = useRouter();
 
   const funcLogin = async () => {
-    const retornoApi = await fetch("http://localhost:3000/usuario", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
+    try {
+
+      const usuarioNovo = {
         nome: nome,
         email: email,
-        senha: senha
-      })
-    })
+        senha: senha,
+        usuario: `@${nome}`,
+        bio: `Criar bios`,
+        FotoPerfil: "",
+      };
+
+      console.log("Enviando:", usuarioNovo);
 
 
+       await fetch("http://localhost:3000/usuario", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(usuarioNovo)})
 
-    if (usuarioEncontrado) {
-      setUsuario(usuarioEncontrado)
-      router.push("/feedtela")
+        setUsuario(usuarioNovo)
+        router.push("/feedtela")
+
+    } catch (error) {
+        console.log(error)
+      }
     }
-  }
+  
 
   return (
     <>
@@ -54,19 +66,19 @@ export default function Cadastro() {
         <View style={cadastroStyles.inputContainer}>
           <View style={cadastroStyles.inputDuo}>
             <Text style={cadastroStyles.inputText}>Nome Completo:</Text>
-            <TextInput placeholder="Digite seu nome" style={cadastroStyles.input} onChangeText={setNome}/>
+            <TextInput placeholder="Digite seu nome" style={cadastroStyles.input} onChangeText={setNome} />
           </View>
           <View style={cadastroStyles.inputDuo}>
             <Text style={cadastroStyles.inputText}>E-mail:</Text>
-            <TextInput placeholder="Digite seu e-mail" style={cadastroStyles.input} onChangeText={setEmail}/>
+            <TextInput placeholder="Digite seu e-mail" style={cadastroStyles.input} onChangeText={setEmail} />
           </View>
           <View style={[cadastroStyles.inputDuo, { marginBottom: 50 }]}>
             <Text style={cadastroStyles.inputText}>Senha:</Text>
-            <TextInput placeholder="Digite sua senha" style={cadastroStyles.input} onChangeText={setSenha}/>
+            <TextInput placeholder="Digite sua senha" style={cadastroStyles.input} onChangeText={setSenha} />
           </View>
           <View style={cadastroStyles.inputDuo}>
 
-            <Button onPress={() => router.push("/feedtela")} text="Criar Conta" backgroundColor="#B83556" textColor="#fff" />
+            <Button onPressButton={() => funcLogin()} text="Criar Conta" backgroundColor="#B83556" textColor="#fff" />
           </View>
 
           <View style={{ width: '100%', alignItems: 'center', gap: 5 }}>
