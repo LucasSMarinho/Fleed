@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import {
     View,
     Text,
@@ -16,21 +16,47 @@ import Logo from "../../../../assets/imagemperfil2.png";
 import { useRouter } from "expo-router";
 import { Oswald_400Regular, useFonts } from "@expo-google-fonts/oswald";
 import * as ImagePicker from "expo-image-picker";
+import React, { useState, useEffect } from "react";
 
 
 export default function EditarPerfil() {
 
     const router = useRouter();
 
-    const [nome, setNome] = useState();
-    const [usuario, setUsuario] = useState();
-    const [bio, setBio] = useState();
+    const [nome, setNome] = useState("");
+    const [usuario, setUsuario] = useState("");
+    const [bio, setBio] = useState("");
 
     const [imagem, setImagem] = useState(null);
 
     const [fontsLoaded] = useFonts({
         Oswald_400Regular,
     });
+
+    useEffect(() => {
+        const buscarUsuario = async () => {
+            try {
+                const resposta = await fetch(
+                    "http://192.168.137.1:3000/usuario/1"
+                );
+
+                const dados = await resposta.json();
+
+                setNome(dados.nome);
+                setUsuario(dados.usuario);
+                setBio(dados.bio);
+                setImagem(dados.FotoPerfil);
+            } catch (error) {
+                console.log("Erro ao buscar usuário:", error);
+            }
+        };
+
+        buscarUsuario();
+    }, []);
+
+
+
+
 
     const abrirCamera = async () => {
         const permissao =
@@ -87,6 +113,18 @@ export default function EditarPerfil() {
 
             setImagem(resultado.assets[0].uri);
         }
+
+        await fetch("http://192.168.137.1:3000/usuario/1", {
+            method: "PATCH",
+
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                nome: nome
+            }),
+        });
     };
 
     const selecionarImagem = () => {
@@ -111,48 +149,48 @@ export default function EditarPerfil() {
         );
     };
 
-    // const salvarAlteracoes = async () => {
+   const salvarAlteracoes = async () => {
+    try {
+        const resposta = await fetch(
+            "http://192.168.137.1:3000/usuario/1",
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    usuario: usuario,
+                    bio: bio,
+                    FotoPerfil: imagem,
+                }),
+            }
+        );
 
-    //     if (!nome || !usuario || !bio) {
+        if (!resposta.ok) {
+            throw new Error("Erro ao atualizar perfil");
+        }
 
-    //         Alert.alert(
-    //             "Atenção",
-    //             "Preencha todos os campos."
-    //         );
+        const dadosAtualizados = await resposta.json();
 
-    //         return;
-    //     }
+        console.log("Usuário atualizado:", dadosAtualizados);
 
-    //     try {
+        Alert.alert(
+            "Sucesso",
+            "Alterações salvas com sucesso!"
+        );
 
-    //         await api.put("/usuarios/1", {
-    //             nome: nome,
-    //             usuario: usuario,
-    //             bio: bio,
-    //             foto: imagem,
-    //         });
+        router.replace("/(tabs)/perfilusuario");
 
-    //         Alert.alert(
-    //             "Sucesso",
-    //             "Perfil atualizado com sucesso!",
-    //             [
-    //                 {
-    //                     text: "OK",
-    //                     onPress: () =>
-    //                         router.replace("/(tabs)/perfilusuario"),
-    //                 },
-    //             ]
-    //         );
+    } catch (error) {
+        console.log("Erro ao salvar:", error);
 
-    //     } catch (error) {
-
-    //         Alert.alert(
-    //             "Erro",
-    //             "Não foi possível salvar as alterações."
-    //         );
-
-    //     }
-    // };
+        Alert.alert(
+            "Erro",
+            "Não foi possível salvar as alterações."
+        );
+    }
+};
 
 
 
@@ -166,11 +204,7 @@ export default function EditarPerfil() {
             <View style={editarperfilStySheet.fotoContainer}>
 
                 <Image
-                    source={
-                        imagem
-                            ? { uri: imagem }
-                            : Logo
-                    }
+                    source={imagem ? { uri: imagem } : Logo}
                     style={editarperfilStySheet.foto}
                 />
 
@@ -220,7 +254,7 @@ export default function EditarPerfil() {
 
             <TouchableOpacity
                 style={editarperfilStySheet.botao}
-                onPress={() => router.replace("/perfilusuario")}
+                onPress={() => salvarAlteracoes}
             >
                 <Text style={editarperfilStySheet.textoBotao}>
                     Salvar alterações
