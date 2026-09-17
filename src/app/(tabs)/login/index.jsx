@@ -61,7 +61,7 @@
             <View style={perfilStyles.inputDuo}>
               <Text style={perfilStyles.inputText}>Esqueceu sua senha?</Text>
 
-              <Button onPress={() => funcLogin()} text="Entrar" backgroundColor="#B83556" textColor="#fff" />
+              <Button onPressButton={() => funcLogin()} text="Entrar" backgroundColor="#B83556" textColor="#fff" />
             </View>
 
             <View style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
