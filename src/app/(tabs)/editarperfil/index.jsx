@@ -5,6 +5,7 @@ import {
     TextInput,
     TouchableOpacity,
     Image,
+    Alert,
 } from "react-native";
 
 import { editarperfilStySheet } from "./editarperfilStyles";
@@ -14,39 +15,177 @@ import Camera from "../../../../assets/camera.svg";
 import Logo from "../../../../assets/imagemperfil2.png";
 import { useRouter } from "expo-router";
 import { Oswald_400Regular, useFonts } from "@expo-google-fonts/oswald";
+import * as ImagePicker from "expo-image-picker";
 
 
 export default function EditarPerfil() {
 
     const router = useRouter();
 
-    const [nome, setNome] = useState("Lucas Moura");
-    const [usuario, setUsuario] = useState("Lucas.moura");
-    const [bio, setBio] = useState("Jogador do São Paulo Futebol Clube.");
+    const [nome, setNome] = useState();
+    const [usuario, setUsuario] = useState();
+    const [bio, setBio] = useState();
+
+    const [imagem, setImagem] = useState(null);
 
     const [fontsLoaded] = useFonts({
         Oswald_400Regular,
     });
 
+    const abrirCamera = async () => {
+        const permissao =
+            await ImagePicker.requestCameraPermissionsAsync();
+
+        if (!permissao.granted) {
+
+            Alert.alert(
+                "Permissão necessária",
+                "É necessário permitir o acesso à câmera para tirar uma foto."
+            );
+
+            return;
+        }
+
+        const resultado =
+            await ImagePicker.launchCameraAsync({
+                mediaTypes: ["images"],
+                allowsEditing: true,
+                quality: 1,
+            });
+
+        if (!resultado.canceled) {
+
+            setImagem(resultado.assets[0].uri);
+
+        }
+    };
+
+    const abrirGaleria = async () => {
+
+        const permissao =
+            await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+        if (!permissao.granted) {
+
+            Alert.alert(
+                "Permissão necessária",
+                "É necessário permitir o acesso à galeria."
+            );
+
+            return;
+        }
+
+        const resultado =
+            await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ["images"],
+                allowsEditing: true,
+                aspect: [1, 1],
+                quality: 1,
+            });
+
+        if (!resultado.canceled) {
+
+            setImagem(resultado.assets[0].uri);
+        }
+    };
+
+    const selecionarImagem = () => {
+
+        Alert.alert(
+            "Adicionar imagem",
+            "Escolha uma opção",
+            [
+                {
+                    text: "Câmera",
+                    onPress: abrirCamera,
+                },
+                {
+                    text: "Galeria",
+                    onPress: abrirGaleria,
+                },
+                {
+                    text: "Cancelar",
+                    style: "cancel",
+                },
+            ]
+        );
+    };
+
+    // const salvarAlteracoes = async () => {
+
+    //     if (!nome || !usuario || !bio) {
+
+    //         Alert.alert(
+    //             "Atenção",
+    //             "Preencha todos os campos."
+    //         );
+
+    //         return;
+    //     }
+
+    //     try {
+
+    //         await api.put("/usuarios/1", {
+    //             nome: nome,
+    //             usuario: usuario,
+    //             bio: bio,
+    //             foto: imagem,
+    //         });
+
+    //         Alert.alert(
+    //             "Sucesso",
+    //             "Perfil atualizado com sucesso!",
+    //             [
+    //                 {
+    //                     text: "OK",
+    //                     onPress: () =>
+    //                         router.replace("/(tabs)/perfilusuario"),
+    //                 },
+    //             ]
+    //         );
+
+    //     } catch (error) {
+
+    //         Alert.alert(
+    //             "Erro",
+    //             "Não foi possível salvar as alterações."
+    //         );
+
+    //     }
+    // };
+
+
+
+
     return (
         <View style={editarperfilStySheet.container}>
 
-            <Header mostrarSeta="true" tituloHeader="Editar Perfil" corText="#588EB2" rota="perfilusuario"/>
-            
+            <Header mostrarSeta="true" tituloHeader="Editar Perfil" corText="#588EB2" rota="perfilusuario" />
+
 
             <View style={editarperfilStySheet.fotoContainer}>
 
                 <Image
-                    source={Logo}
+                    source={
+                        imagem
+                            ? { uri: imagem }
+                            : Logo
+                    }
                     style={editarperfilStySheet.foto}
                 />
 
-                <TouchableOpacity onPress={() => { }}>
-                    <Camera style={editarperfilStySheet.camera} width={25} height={25}/>
+                <TouchableOpacity
+                    onPress={selecionarImagem}
+                    style={editarperfilStySheet.camera}
+                >
+                    <Camera
+                        width={25}
+                        height={25}
+                    />
                 </TouchableOpacity>
 
-
             </View>
+
 
             <Text style={editarperfilStySheet.textoInicial}>
                 Nome
