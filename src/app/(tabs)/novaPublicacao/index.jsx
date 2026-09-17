@@ -116,7 +116,7 @@ export default function NovaPublicacao() {
                     style={styles.publicar}
                     onPress={publicar}
                 >
-                    <Text style={styles.textoPublicar}>
+                    <Text style={styles.textoPublicar} onPress={funcPost()}>
                         Publicar
                     </Text>
                 </TouchableOpacity>
