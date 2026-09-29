@@ -11,12 +11,12 @@
     },
     {
       "id": "2",
-      "nome": "Laurajn ",
+      "nome": "Mangile",
       "email": "Lorenzo@gmail.com",
       "senha": "1234",
-      "usuario": "@lavshsvdgd",
-      "bio": "Criar sgshrbdy",
-      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-35ea7fca-ce7c-4a16-a6bd-6556a84a2f74/ImagePicker/7aeb3792-6094-4c6a-bbfb-5b99768ce108.jpeg"
+      "usuario": "@lorenzo",
+      "bio": "Criar bios",
+      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-c5c41297-9af2-4043-9dc0-29628d41db16/ImagePicker/955ed711-f703-4798-b0f2-33a7a1d9749d.jpeg"
     }
   ],
   "publicacoes": [
@@ -26,7 +26,8 @@
       "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
       "id": "bxpKQNScY4U",
       "curtidas": 1,
-      "curtido": true
+      "curtido": true,
+      "idUsuario": "2"
     },
     {
       "texto": "API fake do nosso site",
@@ -34,23 +35,32 @@
       "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
       "id": "iAAfeLUiwQk",
       "curtidas": 1,
-      "curtido": true
+      "curtido": true,
+      "idUsuario": "2"
     },
     {
       "texto": "Teste",
       "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/c472ca02-72be-4fff-b4c1-889e14d4149d.jpeg",
       "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
       "id": "Mu27laXs3rY",
-      "curtidas": 0,
-      "curtido": false
+      "curtidas": 1,
+      "curtido": true,
+      "idUsuario": "2"
     },
     {
       "texto": "Teste",
       "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-3cf807d1-b55c-4de8-b98c-686f16757bad/ImagePicker/b82f3cdd-8e43-42bd-a84e-36e1e8894ef0.jpeg",
       "localizacao": "Rua Goitacazes, 142, Centro, São Paulo",
       "id": "UiIuM1zFV9s",
-      "curtidas": 0,
-      "curtido": false
+      "curtidas": 1,
+      "curtido": true,
+      "idUsuario": "2"
+    },
+    {
+      "texto": "Nova Publi ",
+      "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-c5c41297-9af2-4043-9dc0-29628d41db16/ImagePicker/d722246a-8ca3-4e1f-b2cd-a6bea0cd7244.jpeg",
+      "localizacao": "Rua São Paulo, 1317, Santa Paula, São Paulo",
+      "id": "p8qDCMlETHc"
     }
   ],
   "notificacoes": [
@@ -67,16 +77,34 @@
       "icone": "CoracaoP"
     },
     {
-      "nome": "Matheus456",
+      "nome": "Laurajn ",
       "texto": "curtiu sua publicação",
       "icone": "CoracaoP",
-      "id": "WEB3YTTbcaQ"
+      "id": "CLiES2kCJMA"
     },
     {
-      "nome": "Matheus456",
+      "nome": "Laurajn ",
       "texto": "curtiu sua publicação",
       "icone": "CoracaoP",
-      "id": "BoK7JyylsQ4"
+      "id": "9RZTFMtR75w"
+    },
+    {
+      "nome": "Laurajn ",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP",
+      "id": "4JVKpQy1iY0"
+    },
+    {
+      "nome": "Laurajn ",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP",
+      "id": "fXZb1s7NYm4"
+    },
+    {
+      "nome": "Laurajn ",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP",
+      "id": "__rrmBjGuYo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

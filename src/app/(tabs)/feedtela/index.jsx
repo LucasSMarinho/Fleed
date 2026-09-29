@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import {
     View,
@@ -19,72 +19,75 @@ import SalvarPreenchido from "../../../../assets/salvar_preenchido.svg";
 import TresPontos from "../../../../assets/tres_pontos.svg";
 
 import { feedtelaStyles } from "./feedtelaStyles";
+import { UsuarioContext } from "../../../context/UsuarioContext";
 
 export default function FeedTela() {
     const router = useRouter();
 
     const [publicacoes, setPublicacoes] = useState([]);
 
+    const { usuario } = useContext(UsuarioContext)
+
     const curtirPublicacao = async (id) => {
-    const publicacao = publicacoes.find(
-        publicacao => publicacao.id === id
-    );
-
-    if (!publicacao) return;
-
-    const novoEstadoCurtido = !publicacao.curtido;
-
-    const novasCurtidas = novoEstadoCurtido
-        ? (publicacao.curtidas || 0) + 1
-        : Math.max((publicacao.curtidas || 0) - 1, 0);
-
-    try {
-        // Salva no JSON Server
-        await fetch(`http://172.16.2.173:3000/publicacoes/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                curtido: novoEstadoCurtido,
-                curtidas: novasCurtidas,
-            }),
-        });
-
-        // Atualiza a tela
-        setPublicacoes(publicacoesAtuais =>
-            publicacoesAtuais.map(publicacao => {
-                if (publicacao.id === id) {
-                    return {
-                        ...publicacao,
-                        curtido: novoEstadoCurtido,
-                        curtidas: novasCurtidas,
-                    };
-                }
-
-                return publicacao;
-            })
+        const publicacao = publicacoes.find(
+            publicacao => publicacao.id === id
         );
 
-        // Só cria a notificação quando CURTIR
-        if (novoEstadoCurtido) {
-            await fetch("http://172.16.2.173:3000/notificacoes", {
-                method: "POST",
+        if (!publicacao) return;
+
+        const novoEstadoCurtido = !publicacao.curtido;
+
+        const novasCurtidas = novoEstadoCurtido
+            ? (publicacao.curtidas || 0) + 1
+            : Math.max((publicacao.curtidas || 0) - 1, 0);
+
+        try {
+            // Salva no JSON Server
+            await fetch(`http://172.16.2.173:3000/publicacoes/${id}`, {
+                method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    nome: "Matheus456",
-                    texto: "curtiu sua publicação",
-                    icone: "CoracaoP",
+                    curtido: novoEstadoCurtido,
+                    curtidas: novasCurtidas,
                 }),
             });
-        }
 
-    } catch (error) {
-        console.error("Erro ao curtir:", error);
-    }
-};
+            // Atualiza a tela
+            setPublicacoes(publicacoesAtuais =>
+                publicacoesAtuais.map(publicacao => {
+                    if (publicacao.id === id) {
+                        return {
+                            ...publicacao,
+                            curtido: novoEstadoCurtido,
+                            curtidas: novasCurtidas,
+                        };
+                    }
+
+                    return publicacao;
+                })
+            );
+
+            // Só cria a notificação quando CURTIR
+            if (novoEstadoCurtido) {
+                await fetch("http://172.16.2.173:3000/notificacoes", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        nome: usuario.nome,
+                        texto: "curtiu sua publicação",
+                        icone: "CoracaoP",
+                    }),
+                });
+            }
+
+        } catch (error) {
+            console.error("Erro ao curtir:", error);
+        }
+    };
 
 
     const funcGet = async () => {
@@ -165,126 +168,137 @@ export default function FeedTela() {
                 showsVerticalScrollIndicator={false}
                 keyboardShouldPersistTaps="handled"
             >
-                {publicacoes.map((publicacao) => (
-                    <View
-                        key={publicacao.id}
-                        style={feedtelaStyles.cardPublicacao}
-                    >
-                        <View style={feedtelaStyles.usuario}>
-                            <Image
-                                source={require("../../../../assets/logo.jpg")}
-                                style={feedtelaStyles.fotoPerfil}
-                            />
+                {publicacoes.map((publicacao) => {
 
-                            <View style={feedtelaStyles.infoUsuario}>
-                                <Text style={feedtelaStyles.nomeUsuario}>
-                                    {publicacao.nome || "Usuário"}
-                                </Text>
+                    const usuario = usuarios.find(
+                        usuario => String(usuario.id) === String(publicacao.idUsuario)
+                    );
 
-                                <Text style={feedtelaStyles.horario}>
-                                    {publicacao.horario || ""}
-                                </Text>
+
+                    return (
+                        <View
+                            key={publicacao.id}
+                            style={feedtelaStyles.cardPublicacao}
+                        >
+                            <View style={feedtelaStyles.usuario}>
+                                <Image
+                                    source={usuario.FotoPerfil
+                                        ? { uri: usuario.FotoPerfil }
+                                        : require("../../../../assets/fotodeperfil.png")
+                                    }
+                                    style={feedtelaStyles.fotoPerfil}
+                                />
+
+                                <View style={feedtelaStyles.infoUsuario}>
+                                    <Text style={feedtelaStyles.nomeUsuario}>
+                                        {publicacao.nome || "Usuário"}
+                                    </Text>
+
+                                    <Text style={feedtelaStyles.horario}>
+                                        {publicacao.horario || ""}
+                                    </Text>
+                                </View>
+
+                                <TouchableOpacity
+                                    style={feedtelaStyles.botaoTresPontos}
+                                    activeOpacity={0.7}
+                                >
+                                    <TresPontos
+                                        width={14}
+                                        height={14}
+                                    />
+                                </TouchableOpacity>
                             </View>
 
-                            <TouchableOpacity
-                                style={feedtelaStyles.botaoTresPontos}
-                                activeOpacity={0.7}
-                            >
-                                <TresPontos
-                                    width={14}
-                                    height={14}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <Text style={feedtelaStyles.textoPublicacao}>
-                            {publicacao.texto}
-                        </Text>
-
-                        {publicacao.imagem && (
-                            <Image
-                                source={{
-                                    uri: publicacao.imagem,
-                                }}
-                                style={feedtelaStyles.imagemPublicacao}
-                                resizeMode="cover"
-                            />
-                        )}
-
-                        {publicacao.localizacao && (
-                            <Text
-                                style={
-                                    feedtelaStyles.localizacaoPublicacao
-                                }
-                            >
-                                📍 {publicacao.localizacao}
+                            <Text style={feedtelaStyles.textoPublicacao}>
+                                {publicacao.texto}
                             </Text>
-                        )}
 
-                        <View style={feedtelaStyles.acoes}>
-                            <TouchableOpacity
-                                style={feedtelaStyles.acao}
-                                onPress={() =>
-                                    curtirPublicacao(publicacao.id)
-                                }
-                                activeOpacity={0.7}
-                            >
-                                {publicacao.curtido ? (
-                                    <CoracaoPreenchido
-                                        width={25}
-                                        height={25}
-                                    />
-                                ) : (
-                                    <CoracaoVazio
-                                        width={20}
-                                        height={20}
-                                    />
-                                )}
-
-                                <Text style={feedtelaStyles.numeroAcao}>
-                                    {publicacao.curtidas || 0}
-                                </Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity
-                                style={feedtelaStyles.acao}
-                                onPress={() =>
-                                    router.push("/detalhes")
-                                }
-                                activeOpacity={0.7}
-                            >
-                                <ComentarioAzul
-                                    width={23}
-                                    height={23}
+                            {publicacao.imagem && (
+                                <Image
+                                    source={{
+                                        uri: publicacao.imagem,
+                                    }}
+                                    style={feedtelaStyles.imagemPublicacao}
+                                    resizeMode="cover"
                                 />
+                            )}
 
-                                <Text style={feedtelaStyles.numeroAcao}>
-                                    {publicacao.comentarios || 0}
+                            {publicacao.localizacao && (
+                                <Text
+                                    style={
+                                        feedtelaStyles.localizacaoPublicacao
+                                    }
+                                >
+                                    📍 {publicacao.localizacao}
                                 </Text>
-                            </TouchableOpacity>
+                            )}
 
-                            <TouchableOpacity
-                                style={feedtelaStyles.botaoSalvar}
-                                activeOpacity={0.7}
-                                onPress={() =>
-                                    salvarPublicacao(publicacao.id)
-                                }
-                            >
-                                {publicacao.salvo ? (
-                                    <SalvarPreenchido
+                            <View style={feedtelaStyles.acoes}>
+                                <TouchableOpacity
+                                    style={feedtelaStyles.acao}
+                                    onPress={() =>
+                                        curtirPublicacao(publicacao.id)
+                                    }
+                                    activeOpacity={0.7}
+                                >
+                                    {publicacao.curtido ? (
+                                        <CoracaoPreenchido
+                                            width={25}
+                                            height={25}
+                                        />
+                                    ) : (
+                                        <CoracaoVazio
+                                            width={20}
+                                            height={20}
+                                        />
+                                    )}
+
+                                    <Text style={feedtelaStyles.numeroAcao}>
+                                        {publicacao.curtidas || 0}
+                                    </Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity
+                                    style={feedtelaStyles.acao}
+                                    onPress={() =>
+                                        router.push("/detalhes")
+                                    }
+                                    activeOpacity={0.7}
+                                >
+                                    <ComentarioAzul
                                         width={23}
                                         height={23}
                                     />
-                                ) : (
-                                    <Salvar
-                                        width={23}
-                                        height={23}
-                                    />
-                                )}
-                            </TouchableOpacity>
+
+                                    <Text style={feedtelaStyles.numeroAcao}>
+                                        {publicacao.comentarios || 0}
+                                    </Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity
+                                    style={feedtelaStyles.botaoSalvar}
+                                    activeOpacity={0.7}
+                                    onPress={() =>
+                                        salvarPublicacao(publicacao.id)
+                                    }
+                                >
+                                    {publicacao.salvo ? (
+                                        <SalvarPreenchido
+                                            width={23}
+                                            height={23}
+                                        />
+                                    ) : (
+                                        <Salvar
+                                            width={23}
+                                            height={23}
+                                        />
+                                    )}
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                    </View>
-                ))}
+                    )
+                })}
 
                 <View style={feedtelaStyles.espacoFinal} />
             </ScrollView>

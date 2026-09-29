@@ -47,7 +47,7 @@ export default function Notificacoes() {
 
   useEffect(() => {
     funcGet()
-  }, [])
+  }, [notificacoes])
 
   return (
     <View style={NotificacoesStyles.container}>
