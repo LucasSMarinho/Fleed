@@ -108,6 +108,12 @@
       "texto": "curtiu sua publicação",
       "icone": "CoracaoP",
       "id": "__rrmBjGuYo"
+    },
+    {
+      "nome": "Mangile",
+      "texto": "curtiu sua publicação",
+      "icone": "CoracaoP",
+      "id": "lxz0BR86nOQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

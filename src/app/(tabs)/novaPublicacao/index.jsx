@@ -10,7 +10,7 @@ import {
     KeyboardAvoidingView,
     Platform,
 } from "react-native";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./novaPublicacaoStyles";
 import { useRouter } from "expo-router";
 import {
@@ -24,6 +24,7 @@ import Fundo from "../../../../assets/fundo.svg";
 import Header from "../../../components/header/Header";
 import * as ImagePicker from "expo-image-picker";
 import * as Location from "expo-location";
+import { UsuarioContext } from "../../../context/UsuarioContext";
 
 export default function NovaPublicacao() {
     const router = useRouter();
@@ -31,6 +32,7 @@ export default function NovaPublicacao() {
     const [descricao, setDescricao] = useState("");
     const [imagem, setImagem] = useState("");
     const [localizacao, setLocalizacao] = useState("");
+    const { usuario } = useContext(UsuarioContext)
 
     const [fontsLoaded] = useFonts({
         Oswald_600SemiBold,
@@ -188,6 +190,9 @@ export default function NovaPublicacao() {
                 texto: descricao,
                 imagem: imagem,
                 localizacao: localizacao,
+                curtidas: 0,
+                curtido: false,
+                idUsario: usuario.id
             };
 
             console.log("POST:", novaPublicacao);
