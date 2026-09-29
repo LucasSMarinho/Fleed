@@ -43,7 +43,7 @@ export default function Cadastro() {
       console.log("Enviando:", usuarioNovo);
 
 
-       await fetch("http://localhost:3000/usuario", {
+       await fetch("http://192.168.137.1:3000/usuario", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

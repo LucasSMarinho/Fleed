@@ -10,11 +10,13 @@ export default function TabsLayout() {
                 tabBarActiveTintColor: "#DC97A5",
                 tabBarInactiveTintColor: "#F2E9E6",
                 tabBarStyle: {
+                    tabBarHideOnKeyboard: true,
                     height: 60,
                     borderTopRightRadius: 5,
                     borderTopLeftRadius: 5,
                     backgroundColor: "#B83556",
-                    paddingTop: 5
+                    paddingTop: 5,
+                    overflow: "hidden"
                 },
                 tabBarIconStyle: {
                     marginBottom: 2,
