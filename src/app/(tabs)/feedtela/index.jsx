@@ -91,24 +91,83 @@ export default function FeedTela() {
 
 
     const funcGet = async () => {
-        try {
-            const retornoApi = await fetch(
-                "http://172.16.2.173:3000/publicacoes"
-            );
+    try {
+        const retornoApi = await fetch(
+            "http://172.16.2.173:3000/publicacoes"
+        );
 
-            if (!retornoApi.ok) {
-                throw new Error("Erro ao buscar publicações");
-            }
-
-            const dados = await retornoApi.json();
-
-            console.log("PUBLICAÇÕES:", dados);
-
-            setPublicacoes(dados);
-        } catch (error) {
-            console.error("ERRO AO BUSCAR PUBLICAÇÕES:", error);
+        if (!retornoApi.ok) {
+            throw new Error("Erro ao buscar publicações");
         }
-    };
+
+        const dados = await retornoApi.json();
+
+        console.log("PUBLICAÇÕES DO SERVIDOR:", dados);
+
+        const publicacoesComUsuario = await Promise.all(
+            dados.map(async (publicacao) => {
+
+                // Se a publicação não tiver usuário
+                if (!publicacao.idUsuario) {
+                    return {
+                        ...publicacao,
+                        usuario: null
+                    };
+                }
+
+                try {
+                    const retornoUsuario = await fetch(
+                        `http://172.16.2.173:3000/usuario/${publicacao.idUsuario}`
+                    );
+
+                    if (!retornoUsuario.ok) {
+                        console.log(
+                            "Usuário não encontrado:",
+                            publicacao.idUsuario
+                        );
+
+                        return {
+                            ...publicacao,
+                            usuario: null
+                        };
+                    }
+
+                    const dadosUsuario = await retornoUsuario.json();
+
+                    return {
+                        ...publicacao,
+                        usuario: dadosUsuario
+                    };
+
+                } catch (error) {
+                    console.log(
+                        "Erro ao buscar usuário:",
+                        publicacao.idUsuario,
+                        error
+                    );
+
+                    return {
+                        ...publicacao,
+                        usuario: null
+                    };
+                }
+            })
+        );
+
+        console.log(
+            "PUBLICAÇÕES COM USUÁRIO:",
+            publicacoesComUsuario
+        );
+
+        setPublicacoes(publicacoesComUsuario);
+
+    } catch (error) {
+        console.error(
+            "ERRO AO BUSCAR PUBLICAÇÕES:",
+            error
+        );
+    }
+};
 
     useEffect(() => {
         funcGet();
@@ -170,10 +229,8 @@ export default function FeedTela() {
             >
                 {publicacoes.map((publicacao) => {
 
-                    const usuario = usuarios.find(
-                        usuario => String(usuario.id) === String(publicacao.idUsuario)
-                    );
-
+                  
+ 
 
                     return (
                         <View
@@ -182,8 +239,8 @@ export default function FeedTela() {
                         >
                             <View style={feedtelaStyles.usuario}>
                                 <Image
-                                    source={usuario.FotoPerfil
-                                        ? { uri: usuario.FotoPerfil }
+                                    source={publicacao.usuario.FotoPerfil
+                                        ? { uri: publicacao.usuario?.FotoPerfil }
                                         : require("../../../../assets/fotodeperfil.png")
                                     }
                                     style={feedtelaStyles.fotoPerfil}

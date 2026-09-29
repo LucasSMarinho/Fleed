@@ -16,7 +16,7 @@
       "senha": "1234",
       "usuario": "@lorenzo",
       "bio": "Criar bios",
-      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-c5c41297-9af2-4043-9dc0-29628d41db16/ImagePicker/955ed711-f703-4798-b0f2-33a7a1d9749d.jpeg"
+      "FotoPerfil": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-c5c41297-9af2-4043-9dc0-29628d41db16/ImagePicker/3f2af35b-322b-4551-832b-c5377defd6d8.jpeg"
     }
   ],
   "publicacoes": [
@@ -60,7 +60,10 @@
       "texto": "Nova Publi ",
       "imagem": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FFleed-c5c41297-9af2-4043-9dc0-29628d41db16/ImagePicker/d722246a-8ca3-4e1f-b2cd-a6bea0cd7244.jpeg",
       "localizacao": "Rua São Paulo, 1317, Santa Paula, São Paulo",
-      "id": "p8qDCMlETHc"
+      "id": "p8qDCMlETHc",
+      "curtidas": 1,
+      "curtido": true,
+      "idUsuario": "2"
     }
   ],
   "notificacoes": [

@@ -6,7 +6,7 @@
     "@expo-google-fonts/oswald": "^0.4.2",
     "@expo/metro-runtime": "~57.0.15",
     "@expo/vector-icons": "^15.0.2",
-    "expo": "~57.0.21",
+    "expo": "57.0.9",
     "expo-asset": "~57.0.16",
     "expo-constants": "~57.0.17",
     "expo-font": "~57.0.3",
