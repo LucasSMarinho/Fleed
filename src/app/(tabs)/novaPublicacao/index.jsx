@@ -167,6 +167,23 @@ export default function NovaPublicacao() {
 
     const publicar = async () => {
         try {
+
+            if (imagem === "") 
+            {
+                Alert.alert(
+                    "É necessário adicionar uma imagem"
+                );
+                return;
+            }
+
+            if (localizacao === "") 
+            {
+                Alert.alert(
+                    "É necessário adicionar a localização"
+                );
+                return;
+            }
+
             const novaPublicacao = {
                 texto: descricao,
                 imagem: imagem,
