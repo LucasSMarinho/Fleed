@@ -34,17 +34,11 @@ export default function Notificacoes() {
       nome: 'Lucas',
       texto: 'curtiu sua publicação',
       icone: CoracaoP,
-    },
-    {
-      nome: 'Neymar',
-      texto: 'comentou na sua publicação',
-      icone: Comentario,
-    },
-
+    }
   ]);
 
   const funcGet = async () => {
-    const retornoApi = await fetch("http://localhost:3000/notificacoes")
+    const retornoApi = await fetch("http://172.16.2.173:3000/notificacoes")
     const dados = await retornoApi.json()
     console.log(dados)
     setNotificacoes(dados)

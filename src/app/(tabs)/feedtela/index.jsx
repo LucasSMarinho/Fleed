@@ -17,7 +17,6 @@ import CoracaoPreenchido from "../../../../assets/coracao-preenchido.svg";
 import Salvar from "../../../../assets/salvar.svg";
 import SalvarPreenchido from "../../../../assets/salvar_preenchido.svg";
 import TresPontos from "../../../../assets/tres_pontos.svg";
-import Perfil from "../../../../assets/perfil.svg";
 
 import { feedtelaStyles } from "./feedtelaStyles";
 
@@ -26,30 +25,72 @@ export default function FeedTela() {
 
     const [publicacoes, setPublicacoes] = useState([]);
 
-    const curtirPublicacao = (id) => {
-        setPublicacoes((lista) =>
-            lista.map((publicacao) => {
-                if (publicacao.id === id) {
-                    const novoEstadoCurtido = !publicacao.curtido;
+    const curtirPublicacao = async (id) => {
+    const publicacao = publicacoes.find(
+        publicacao => publicacao.id === id
+    );
 
+    if (!publicacao) return;
+
+    const novoEstadoCurtido = !publicacao.curtido;
+
+    const novasCurtidas = novoEstadoCurtido
+        ? (publicacao.curtidas || 0) + 1
+        : Math.max((publicacao.curtidas || 0) - 1, 0);
+
+    try {
+        // Salva no JSON Server
+        await fetch(`http://172.16.2.173:3000/publicacoes/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                curtido: novoEstadoCurtido,
+                curtidas: novasCurtidas,
+            }),
+        });
+
+        // Atualiza a tela
+        setPublicacoes(publicacoesAtuais =>
+            publicacoesAtuais.map(publicacao => {
+                if (publicacao.id === id) {
                     return {
                         ...publicacao,
                         curtido: novoEstadoCurtido,
-                        curtidas: novoEstadoCurtido
-                            ? (publicacao.curtidas || 0) + 1
-                            : Math.max((publicacao.curtidas || 0) - 1, 0),
+                        curtidas: novasCurtidas,
                     };
                 }
 
                 return publicacao;
             })
         );
-    };
+
+        // Só cria a notificação quando CURTIR
+        if (novoEstadoCurtido) {
+            await fetch("http://172.16.2.173:3000/notificacoes", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nome: "Matheus456",
+                    texto: "curtiu sua publicação",
+                    icone: "CoracaoP",
+                }),
+            });
+        }
+
+    } catch (error) {
+        console.error("Erro ao curtir:", error);
+    }
+};
+
 
     const funcGet = async () => {
         try {
             const retornoApi = await fetch(
-                "http://192.168.137.1:3000/publicacoes"
+                "http://172.16.2.173:3000/publicacoes"
             );
 
             if (!retornoApi.ok) {
