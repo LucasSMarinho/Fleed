@@ -151,25 +151,19 @@ export const perfilusuarioStyles = StyleSheet.create({
     },
 
 
-    /* GALERIA */
-
-        /* GALERIA */
-
-    galeria: {
-        flexDirection: "row",
-        flexWrap: "wrap",
-        width: "100%",
-        justifyContent: "space-between",
-        marginTop: 5,
-    },
-
-
-    fotoGaleria: {
-        width: "31.5%",
-        height: 130,
-        marginBottom: 6,
-        resizeMode: "cover",
-    },
+   galeria: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: "100%",
+    justifyContent: "space-between",
+    marginTop: 5,
+},
+fotoGaleria: {
+    width: "31.5%",
+    height: 130,
+    marginBottom: 6,
+    resizeMode: "cover",
+},
 
 
 });

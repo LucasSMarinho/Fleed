@@ -19,7 +19,6 @@ import CanetaIcon from "../../../../assets/caneta.svg";
 import { perfilusuarioStyles } from "./perfilusuarioStyles";
 import { UsuarioContext } from "../../../context/UsuarioContext";
 
-
 export default function PerfilUsuario() {
 
   const router = useRouter();
@@ -27,8 +26,9 @@ export default function PerfilUsuario() {
   const [nome, setNome] = useState("");
   const [bio, setBio] = useState("");
   const [fotoPerfil, setFotoPerfil] = useState(null);
+  const [publicacoes, setPublicacoes] = useState([]);
+
   const { usuario } = useContext(UsuarioContext);
-  const [nomeUsuario, setNomeUsuario] = useState("");
 
   const buscarUsuario = async () => {
     try {
@@ -44,7 +44,6 @@ export default function PerfilUsuario() {
       const dados = await resposta.json();
 
       setNome(dados.nome);
-      setNomeUsuario(dados.usuario);
       setBio(dados.bio);
       setFotoPerfil(dados.FotoPerfil);
 
@@ -55,39 +54,44 @@ export default function PerfilUsuario() {
     }
   };
 
+  const buscarPublicacoes = async () => {
+  try {
+    const resposta = await fetch(
+      "http://192.168.137.1:3000/publicacoes"
+    );
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao buscar publicações");
+    }
+
+    const dados = await resposta.json();
+
+    console.log("PUBLICAÇÕES DO PERFIL:", dados);
+
+    dados.forEach((publicacao) => {
+      console.log("ID:", publicacao.id);
+      console.log("IMAGEM:", publicacao.imagem);
+    });
+
+    setPublicacoes(dados);
+
+  } catch (error) {
+    console.log("Erro ao buscar publicações:", error);
+  }
+};
+
   useEffect(() => {
-    buscarUsuario();
-  }, [usuario]);
+  buscarUsuario();
+  buscarPublicacoes();
 
+  const intervalo = setInterval(() => {
+    buscarPublicacoes();
+  }, 1000);
 
-  const publicacoes = [
-
-    {
-      id: 1,
-      imagem: require("../../../../assets/imagemperfil.png"),
-    },
-
-    {
-      id: 2,
-      imagem: require("../../../../assets/imagemperfil2.png"),
-    },
-
-    {
-      id: 3,
-      imagem: require("../../../../assets/imagemperfil3.png"),
-    },
-
-    {
-      id: 4,
-      imagem: require("../../../../assets/imagemperfil3.png"),
-    },
-
-  ];
-
-
+  return () => clearInterval(intervalo);
+}, []);
   return (
-
-    <View style={perfilusuarioStyles.container} >
+    <View style={perfilusuarioStyles.container}>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -100,13 +104,12 @@ export default function PerfilUsuario() {
           corText="#588eb2"
         />
 
-
         <View style={perfilusuarioStyles.areaFoto}>
 
           <Image
             source={
-              usuario.FotoPerfil
-                ? { uri: usuario.FotoPerfil }
+              fotoPerfil
+                ? { uri: fotoPerfil }
                 : require("../../../../assets/fotodeperfil.png")
             }
             style={perfilusuarioStyles.fotoPerfil}
@@ -114,11 +117,10 @@ export default function PerfilUsuario() {
 
         </View>
 
-
         <View style={perfilusuarioStyles.areaNome}>
 
           <Text style={perfilusuarioStyles.nome}>
-            {usuario.nome}
+            {nome}
           </Text>
 
           <TouchableOpacity
@@ -136,7 +138,7 @@ export default function PerfilUsuario() {
         </View>
 
         <Text style={perfilusuarioStyles.usuario}>
-          {usuario.usuario}
+          {usuario?.usuario}
         </Text>
 
         <View style={perfilusuarioStyles.informacoes}>
@@ -144,7 +146,7 @@ export default function PerfilUsuario() {
           <View style={perfilusuarioStyles.info}>
 
             <Text style={perfilusuarioStyles.numero}>
-              234
+              {publicacoes.length}
             </Text>
 
             <Text style={perfilusuarioStyles.textoInfo}>
@@ -152,7 +154,6 @@ export default function PerfilUsuario() {
             </Text>
 
           </View>
-
 
           <View style={perfilusuarioStyles.info}>
 
@@ -165,7 +166,6 @@ export default function PerfilUsuario() {
             </Text>
 
           </View>
-
 
           <View style={perfilusuarioStyles.info}>
 
@@ -185,7 +185,6 @@ export default function PerfilUsuario() {
           {bio}
         </Text>
 
-
         <View style={perfilusuarioStyles.menuGaleria}>
 
           <TouchableOpacity>
@@ -198,7 +197,6 @@ export default function PerfilUsuario() {
 
           </TouchableOpacity>
 
-
           <TouchableOpacity>
 
             <SalvarIcon
@@ -210,25 +208,38 @@ export default function PerfilUsuario() {
           </TouchableOpacity>
 
         </View>
+<View style={perfilusuarioStyles.galeria}>
 
-        <View style={perfilusuarioStyles.galeria}>
+  {publicacoes.map((publicacao) => {
+    if (!publicacao.imagem) {
+      return null;
+    }
 
-          {publicacoes.map((publicacao) => (
+    return (
+      <TouchableOpacity
+        key={publicacao.id}
+        activeOpacity={0.8}
+        onPress={() => router.push("/detalhes")}
+      >
+        <Image
+          source={{ uri: publicacao.imagem }}
+          style={{
+            width: 120,
+            height: 130,
+          }}
+          resizeMode="cover"
+          onError={(erro) =>
+            console.log("ERRO AO CARREGAR FOTO:", erro.nativeEvent)
+          }
+        />
+      </TouchableOpacity>
+    );
+  })}
 
-            <Image
-              key={publicacao.id}
-              source={publicacao.imagem}
-              style={perfilusuarioStyles.fotoGaleria}
-            />
-
-          ))}
-
-        </View>
+</View>
 
       </ScrollView>
 
     </View>
-
   );
-
 }
